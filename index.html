@@ -3,8 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#090b10">
-<title>FOCUS — Get Things Done</title>
+<meta name="theme-color" content="#080a10">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>FOCUS — Get focused. Get it done.</title>
 
 <style>
 *{
@@ -13,24 +15,30 @@
 }
 
 :root{
-  --bg:#090b10;
-  --card:#12161f;
-  --card2:#181d27;
-  --line:#252b36;
-  --text:#f7f8fa;
-  --muted:#8b93a1;
+  --bg:#080a10;
+  --card:#141821;
+  --card2:#191e29;
+  --border:#293142;
+  --text:#f7f8fb;
+  --muted:#8992a5;
   --blue:#5b7cff;
   --blue2:#7893ff;
-  --green:#35d07f;
-  --red:#ff5d6c;
-  --orange:#ffad42;
+  --green:#39d98a;
+  --red:#ff5d73;
+  --yellow:#ffc857;
 }
 
-body{
+html,body{
   margin:0;
   background:var(--bg);
   color:var(--text);
-  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Arial,sans-serif;
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",
+  "SF Pro Text",Inter,Arial,sans-serif;
+}
+
+body{
+  min-height:100vh;
+  padding-bottom:100px;
 }
 
 button,input{
@@ -38,191 +46,172 @@ button,input{
 }
 
 button{
+  border:0;
   cursor:pointer;
 }
 
 .app{
   width:100%;
-  max-width:520px;
+  max-width:900px;
   margin:auto;
-  min-height:100vh;
-  padding:22px 18px 105px;
+  padding:24px 16px 120px;
 }
 
-/* HEADER */
-
-.top{
+header{
   display:flex;
-  justify-content:space-between;
   align-items:center;
+  justify-content:space-between;
   margin-bottom:28px;
 }
 
 .brand{
   display:flex;
   align-items:center;
-  gap:10px;
+  gap:12px;
 }
 
 .logo{
-  width:44px;
-  height:44px;
-  border-radius:14px;
+  width:56px;
+  height:56px;
+  border-radius:18px;
   display:flex;
   align-items:center;
   justify-content:center;
-  background:linear-gradient(135deg,#5b7cff,#8b65ff);
-  font-size:24px;
-  box-shadow:0 10px 30px rgba(91,124,255,.25);
+  font-size:30px;
+  background:linear-gradient(135deg,#566cff,#845cff);
+  box-shadow:0 14px 32px #5b7cff33;
 }
 
 .brand h1{
   margin:0;
-  font-size:23px;
-  letter-spacing:-.7px;
+  font-size:28px;
+  letter-spacing:-1px;
 }
 
 .avatar{
-  width:42px;
-  height:42px;
+  width:48px;
+  height:48px;
   border-radius:50%;
-  background:#1c2230;
+  background:#171d29;
+  border:1px solid var(--border);
   display:flex;
   align-items:center;
   justify-content:center;
   font-weight:800;
 }
 
-/* SCREENS */
-
-.screen{
+.view{
   display:none;
 }
 
-.screen.active{
+.view.active{
   display:block;
 }
 
-/* HERO */
+.hero{
+  margin-bottom:20px;
+}
 
 .greeting{
   color:var(--muted);
-  font-size:15px;
-  margin-bottom:5px;
+  font-size:17px;
+  margin-bottom:7px;
 }
 
 .hero h2{
-  font-size:36px;
-  line-height:1.05;
-  letter-spacing:-1.5px;
-  margin:0 0 10px;
-}
-
-.hero p{
-  margin:0 0 24px;
-  color:var(--muted);
-  font-size:16px;
-}
-
-/* DAILY CARD */
-
-.daily{
-  padding:22px;
-  border-radius:25px;
-  background:
-    radial-gradient(circle at top right,rgba(91,124,255,.22),transparent 40%),
-    linear-gradient(145deg,#171d29,#11151d);
-  border:1px solid #252d3b;
-  margin-bottom:18px;
-}
-
-.daily-title{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
-.daily-title h3{
   margin:0;
-  font-size:18px;
-}
-
-.date{
-  color:var(--muted);
-  font-size:13px;
-}
-
-.big-number{
-  font-size:48px;
-  font-weight:800;
-  margin-top:12px;
+  font-size:44px;
+  line-height:1.03;
   letter-spacing:-2px;
 }
 
-.progress{
-  height:9px;
-  background:#272d38;
-  border-radius:20px;
-  overflow:hidden;
-  margin:12px 0 8px;
+.hero p{
+  color:var(--muted);
+  font-size:17px;
+  margin:12px 0 0;
 }
 
-.progress-bar{
-  height:100%;
-  width:0%;
-  background:linear-gradient(90deg,var(--blue),#8c6cff);
-  border-radius:20px;
-  transition:.35s;
+.card{
+  background:linear-gradient(145deg,#151a24,#11151d);
+  border:1px solid var(--border);
+  border-radius:26px;
+  padding:22px;
+  margin-bottom:17px;
+  box-shadow:0 16px 45px #00000025;
 }
 
-.progress-text{
+.card-title{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+
+.card-title h3{
+  margin:0;
+  font-size:21px;
+}
+
+.small{
   color:var(--muted);
   font-size:13px;
 }
 
-/* CARDS */
-
-.card{
-  background:var(--card);
-  border:1px solid var(--line);
-  border-radius:22px;
-  padding:20px;
-  margin-bottom:18px;
+.progress-number{
+  font-size:58px;
+  font-weight:900;
+  letter-spacing:-3px;
+  margin:14px 0;
 }
 
-.card-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:16px;
+.progress-track{
+  height:10px;
+  border-radius:20px;
+  background:#272e3b;
+  overflow:hidden;
 }
 
-.card-header h3{
-  margin:0;
-  font-size:19px;
+.progress-fill{
+  height:100%;
+  width:0;
+  background:linear-gradient(90deg,var(--blue),#8a72ff);
+  transition:.35s;
 }
 
-.link{
-  color:var(--blue2);
-  font-size:13px;
-  font-weight:700;
+.stats-row{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  margin-top:18px;
 }
 
-/* TASK INPUT */
+.mini-stat{
+  background:#171c27;
+  border:1px solid #252c39;
+  border-radius:17px;
+  padding:14px;
+}
 
-.add-row{
+.mini-stat strong{
+  display:block;
+  font-size:22px;
+  margin-bottom:4px;
+}
+
+.task-input-row{
   display:flex;
   gap:9px;
+  margin-top:18px;
 }
 
 .task-input{
   flex:1;
   min-width:0;
-  border:1px solid var(--line);
-  background:var(--card2);
+  border:1px solid var(--border);
+  background:#1a1f2a;
   color:white;
-  border-radius:14px;
-  padding:14px;
+  padding:15px;
+  border-radius:17px;
   outline:none;
 }
 
@@ -230,355 +219,335 @@ button{
   border-color:var(--blue);
 }
 
-.add-btn{
-  width:52px;
-  border:0;
-  border-radius:14px;
-  color:white;
+.primary{
   background:var(--blue);
-  font-size:25px;
-  font-weight:600;
+  color:white;
+  border-radius:17px;
+  min-width:58px;
+  font-size:26px;
 }
 
-/* TASK */
-
 .task-list{
-  display:flex;
-  flex-direction:column;
-  gap:10px;
+  margin-top:17px;
 }
 
 .task{
   display:flex;
   align-items:center;
-  gap:12px;
+  gap:11px;
   padding:14px;
-  background:var(--card2);
-  border-radius:15px;
-  border:1px solid transparent;
+  background:#171c27;
+  border:1px solid #252c39;
+  border-radius:16px;
+  margin-bottom:9px;
 }
 
-.task.done{
-  opacity:.55;
-}
-
-.checkbox{
-  width:22px;
-  height:22px;
+.check{
+  width:25px;
+  height:25px;
   border-radius:50%;
-  border:2px solid #5b6473;
-  flex-shrink:0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  cursor:pointer;
-}
-
-.task.done .checkbox{
-  border-color:var(--green);
-  background:var(--green);
+  border:2px solid #596275;
+  background:transparent;
+  flex:none;
   color:#06120b;
-}
-
-.task.done .checkbox:after{
-  content:"✓";
-  font-size:13px;
   font-weight:900;
 }
 
-.task-name{
-  flex:1;
-  font-size:15px;
-  line-height:1.3;
+.task.done .check{
+  background:var(--green);
+  border-color:var(--green);
 }
 
-.task.done .task-name{
+.task-text{
+  flex:1;
+  word-break:break-word;
+}
+
+.task.done .task-text{
   text-decoration:line-through;
+  color:#70798a;
 }
 
 .delete{
-  background:none;
-  border:0;
-  color:#667080;
-  font-size:19px;
+  width:34px;
+  height:34px;
+  border-radius:11px;
+  background:#242a36;
+  color:#aab2c0;
 }
 
-/* TIMER */
-
-.timer-card{
+.empty{
   text-align:center;
-  padding:28px 20px;
+  color:var(--muted);
+  padding:28px 8px;
+}
+
+.quote{
+  font-size:18px;
+  line-height:1.5;
+  color:#dfe4ef;
+}
+
+.streak-box{
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+
+.fire{
+  font-size:45px;
+}
+
+.streak-number{
+  font-size:38px;
+  font-weight:900;
+}
+
+.mission{
+  background:
+    radial-gradient(circle at top right,#5b7cff38,transparent 45%),
+    linear-gradient(145deg,#171d2b,#11151d);
+  border-color:#36415c;
+}
+
+.mission-badge{
+  display:inline-flex;
+  padding:7px 10px;
+  border-radius:11px;
+  background:#5b7cff22;
+  color:#aab8ff;
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:.8px;
+}
+
+.mission h3{
+  font-size:25px;
+  margin:12px 0 6px;
+}
+
+.mission p{
+  color:var(--muted);
+  margin:0 0 16px;
+}
+
+.action{
+  width:100%;
+  padding:15px;
+  border-radius:17px;
+  background:var(--blue);
+  color:#fff;
+  font-weight:800;
+  margin-top:12px;
+}
+
+.secondary{
+  width:100%;
+  padding:13px;
+  border-radius:15px;
+  background:#202633;
+  color:#dfe4ef;
+  margin-top:9px;
+}
+
+.timer-wrap{
+  text-align:center;
 }
 
 .timer-mode{
   color:var(--blue2);
-  font-weight:800;
   font-size:13px;
-  letter-spacing:1.5px;
+  font-weight:800;
+  letter-spacing:2px;
   text-transform:uppercase;
 }
 
+.timer-ring{
+  width:245px;
+  height:245px;
+  border-radius:50%;
+  border:9px solid #242b38;
+  margin:20px auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
 .timer{
-  font-size:76px;
-  font-weight:800;
-  letter-spacing:-4px;
-  margin:14px 0;
+  font-size:66px;
+  font-weight:900;
+  letter-spacing:-3px;
   font-variant-numeric:tabular-nums;
 }
 
-.timer-btn{
-  width:100%;
-  border:0;
-  border-radius:16px;
-  padding:16px;
-  color:white;
-  background:var(--blue);
-  font-weight:800;
-  font-size:17px;
-}
-
-.timer-secondary{
-  margin-top:10px;
-  width:100%;
-  padding:12px;
-  border-radius:14px;
-  border:1px solid var(--line);
-  color:var(--muted);
-  background:transparent;
-}
-
-/* STATS */
-
-.stats-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:12px;
-}
-
-.stat{
-  padding:18px;
-  background:var(--card2);
-  border-radius:17px;
-}
-
-.stat-icon{
-  font-size:21px;
-}
-
-.stat-number{
-  font-size:27px;
-  font-weight:800;
-  margin-top:9px;
-}
-
-.stat-label{
-  color:var(--muted);
-  font-size:12px;
-  margin-top:2px;
-}
-
-/* MOTIVATION */
-
-.quote{
-  font-size:18px;
-  line-height:1.4;
-  font-weight:700;
-}
-
-.quote-author{
-  color:var(--muted);
-  font-size:13px;
-  margin-top:10px;
-}
-
-/* NAV */
-
-.nav{
-  position:fixed;
-  bottom:0;
-  left:0;
-  right:0;
-  max-width:520px;
-  margin:auto;
-  height:82px;
-  padding:9px 18px 13px;
-  background:rgba(9,11,16,.94);
-  backdrop-filter:blur(20px);
-  border-top:1px solid var(--line);
+.timer-buttons{
   display:flex;
-  justify-content:space-around;
-  z-index:50;
-}
-
-.nav-btn{
-  flex:1;
-  border:0;
-  background:none;
-  color:#687180;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
   justify-content:center;
-  gap:4px;
-  font-size:11px;
-  font-weight:700;
+  gap:9px;
+  flex-wrap:wrap;
 }
 
-.nav-btn span{
-  font-size:22px;
-}
-
-.nav-btn.active{
+.timer-btn{
+  padding:14px 22px;
+  border-radius:16px;
+  background:#202633;
   color:white;
+  font-weight:800;
 }
 
-.nav-btn.active span{
-  filter:drop-shadow(0 0 8px rgba(91,124,255,.7));
+.timer-btn.primary-btn{
+  background:var(--blue);
 }
 
-/* PAGE TITLE */
-
-.page-title{
-  font-size:32px;
-  letter-spacing:-1px;
-  margin:8px 0 5px;
+.mode-buttons{
+  display:flex;
+  gap:8px;
+  justify-content:center;
+  margin-top:17px;
 }
 
-.page-sub{
-  color:var(--muted);
-  margin:0 0 22px;
+.mode-btn{
+  padding:10px 13px;
+  border-radius:13px;
+  background:#202633;
+  color:#9ca5b7;
 }
 
-/* HABIT */
-
-.streak{
-  text-align:center;
-  padding:25px;
+.mode-btn.active{
+  background:var(--blue);
+  color:#fff;
 }
-
-.fire{
-  font-size:54px;
-}
-
-.streak-number{
-  font-size:54px;
-  font-weight:900;
-  margin-top:4px;
-}
-
-.streak-label{
-  color:var(--muted);
-}
-
-/* WEEK */
 
 .week{
-  display:flex;
-  justify-content:space-between;
-  gap:5px;
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+  gap:7px;
+  margin-top:20px;
 }
 
 .day{
-  flex:1;
   text-align:center;
-  color:var(--muted);
-  font-size:11px;
 }
 
-.day-circle{
-  width:34px;
-  height:34px;
-  margin:7px auto 0;
+.day-name{
+  color:var(--muted);
+  font-size:11px;
+  margin-bottom:6px;
+}
+
+.day-bar{
+  height:95px;
+  border-radius:11px;
+  background:#202632;
+  position:relative;
+  overflow:hidden;
+}
+
+.day-fill{
+  position:absolute;
+  bottom:0;
+  width:100%;
+  background:linear-gradient(180deg,var(--blue2),var(--blue));
+  border-radius:11px;
+}
+
+.day-value{
+  font-size:11px;
+  color:var(--muted);
+  margin-top:5px;
+}
+
+.profile-card{
+  text-align:center;
+}
+
+.profile-avatar{
+  width:82px;
+  height:82px;
   border-radius:50%;
-  background:#252b35;
+  margin:0 auto 14px;
+  background:linear-gradient(135deg,#566cff,#845cff);
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:12px;
-  font-weight:700;
+  font-size:32px;
+  font-weight:900;
 }
 
-.day.active .day-circle{
+.level{
+  color:var(--blue2);
+  font-weight:800;
+}
+
+.xp-track{
+  height:9px;
+  background:#272e3b;
+  border-radius:20px;
+  overflow:hidden;
+  margin-top:16px;
+}
+
+.xp-fill{
+  height:100%;
+  width:0;
   background:var(--blue);
-  color:white;
 }
-
-.day.today{
-  color:white;
-}
-
-/* SETTINGS */
 
 .setting{
   display:flex;
-  justify-content:space-between;
   align-items:center;
-  padding:16px 0;
-  border-bottom:1px solid var(--line);
+  justify-content:space-between;
+  padding:15px 0;
+  border-bottom:1px solid #252c38;
 }
 
 .setting:last-child{
   border-bottom:0;
 }
 
-.setting-title{
+.bottom-nav{
+  position:fixed;
+  left:50%;
+  bottom:0;
+  transform:translateX(-50%);
+  width:100%;
+  max-width:900px;
+  padding:10px 10px calc(10px + env(safe-area-inset-bottom));
+  background:#090b10ee;
+  backdrop-filter:blur(20px);
+  border-top:1px solid #252c38;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  z-index:50;
+}
+
+.nav-btn{
+  background:transparent;
+  color:#717b8e;
+  padding:7px 3px;
   font-weight:700;
+  font-size:11px;
 }
 
-.setting-sub{
-  color:var(--muted);
-  font-size:12px;
-  margin-top:3px;
-}
-
-.toggle{
-  width:48px;
-  height:28px;
-  border-radius:20px;
-  border:0;
-  background:#303642;
-  padding:3px;
-}
-
-.toggle i{
+.nav-icon{
   display:block;
-  width:22px;
-  height:22px;
-  border-radius:50%;
-  background:#8b93a1;
-  transition:.2s;
+  font-size:22px;
+  margin-bottom:3px;
 }
 
-.toggle.on{
-  background:var(--blue);
+.nav-btn.active{
+  color:#fff;
 }
-
-.toggle.on i{
-  transform:translateX(20px);
-  background:white;
-}
-
-/* EMPTY */
-
-.empty{
-  text-align:center;
-  color:var(--muted);
-  padding:20px 5px;
-  font-size:14px;
-}
-
-/* TOAST */
 
 .toast{
   position:fixed;
   left:50%;
   bottom:95px;
   transform:translateX(-50%) translateY(20px);
-  background:#f7f8fa;
+  background:#f5f6fa;
   color:#090b10;
   padding:12px 17px;
-  border-radius:13px;
-  font-size:13px;
+  border-radius:14px;
   font-weight:800;
   opacity:0;
   pointer-events:none;
@@ -592,20 +561,93 @@ button{
   transform:translateX(-50%) translateY(0);
 }
 
-/* RESPONSIVE */
+.onboarding{
+  position:fixed;
+  inset:0;
+  background:#080a10;
+  z-index:200;
+  display:none;
+  overflow:auto;
+}
 
-@media(max-width:380px){
+.onboarding.show{
+  display:block;
+}
+
+.onboard-inner{
+  max-width:520px;
+  margin:auto;
+  padding:55px 22px 40px;
+}
+
+.onboard-logo{
+  font-size:60px;
+}
+
+.onboarding h2{
+  font-size:40px;
+  line-height:1.05;
+  letter-spacing:-1.7px;
+  margin:18px 0 10px;
+}
+
+.onboarding p{
+  color:var(--muted);
+  font-size:16px;
+  line-height:1.5;
+}
+
+.choice-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin:24px 0;
+}
+
+.choice{
+  padding:17px;
+  border-radius:17px;
+  background:#151a24;
+  border:1px solid var(--border);
+  color:white;
+  text-align:left;
+}
+
+.choice.active{
+  border-color:var(--blue);
+  background:#1b2140;
+}
+
+.choice strong{
+  display:block;
+}
+
+.choice span{
+  font-size:12px;
+  color:var(--muted);
+}
+
+@media(max-width:600px){
+  .app{
+    padding:20px 14px 115px;
+  }
+
   .hero h2{
-    font-size:31px;
+    font-size:40px;
+  }
+
+  .card{
+    padding:19px;
+    border-radius:22px;
+  }
+
+  .timer-ring{
+    width:225px;
+    height:225px;
   }
 
   .timer{
-    font-size:64px;
-  }
-
-  .app{
-    padding-left:14px;
-    padding-right:14px;
+    font-size:60px;
   }
 }
 </style>
@@ -613,307 +655,839 @@ button{
 
 <body>
 
+<div class="onboarding" id="onboarding">
+  <div class="onboard-inner">
+    <div class="onboard-logo">🎯</div>
+
+    <h2>
+      Build discipline.<br>
+      One day at a time.
+    </h2>
+
+    <p>
+      FOCUS creates a simple daily mission so
+      you don't have to figure out what to do next.
+    </p>
+
+    <h3>
+      What do you want to improve?
+    </h3>
+
+    <div class="choice-grid">
+
+      <button class="choice"
+        data-goal="discipline"
+        onclick="chooseGoal(this)">
+        <strong>🔥 Discipline</strong>
+        <span>Build consistency</span>
+      </button>
+
+      <button class="choice"
+        data-goal="study"
+        onclick="chooseGoal(this)">
+        <strong>📚 Study</strong>
+        <span>Learn & perform</span>
+      </button>
+
+      <button class="choice"
+        data-goal="fitness"
+        onclick="chooseGoal(this)">
+        <strong>🏋️ Fitness</strong>
+        <span>Move & train</span>
+      </button>
+
+      <button class="choice"
+        data-goal="productivity"
+        onclick="chooseGoal(this)">
+        <strong>⚡ Productivity</strong>
+        <span>Get more done</span>
+      </button>
+
+      <button class="choice"
+        data-goal="money"
+        onclick="chooseGoal(this)">
+        <strong>💰 Money</strong>
+        <span>Build better habits</span>
+      </button>
+
+      <button class="choice"
+        data-goal="self"
+        onclick="chooseGoal(this)">
+        <strong>🧠 Self-growth</strong>
+        <span>Improve yourself</span>
+      </button>
+
+    </div>
+
+    <button class="action"
+      onclick="finishOnboarding()">
+      Build my first mission →
+    </button>
+  </div>
+</div>
+
+
 <div class="app">
 
-  <!-- HEADER -->
-  <div class="top">
-    <div class="brand">
-      <div class="logo">🎯</div>
-      <h1>FOCUS</h1>
+<header>
+
+  <div class="brand">
+    <div class="logo">🎯</div>
+    <h1>FOCUS</h1>
+  </div>
+
+  <div class="avatar" id="headerAvatar">
+    N
+  </div>
+
+</header>
+
+
+<!-- HOME -->
+
+<section id="home" class="view active">
+
+  <div class="hero">
+
+    <div class="greeting" id="greeting">
+      Good evening
     </div>
-    <div class="avatar">N</div>
+
+    <h2>
+      Get focused.<br>
+      Get it done.
+    </h2>
+
+    <p>
+      Small actions. Big results.
+    </p>
+
   </div>
 
 
-  <!-- HOME -->
-  <section id="home" class="screen active">
+  <div class="card">
 
-    <div class="hero">
-      <div class="greeting" id="greeting">Good evening</div>
-      <h2>Get focused.<br>Get it done.</h2>
-      <p>Small actions. Big results.</p>
+    <div class="card-title">
+
+      <h3>
+        Today's progress
+      </h3>
+
+      <span class="small" id="todayDate"></span>
+
     </div>
 
-    <div class="daily">
-      <div class="daily-title">
-        <h3>Today's progress</h3>
-        <div class="date" id="date"></div>
-      </div>
-
-      <div class="big-number" id="percent">0%</div>
-
-      <div class="progress">
-        <div class="progress-bar" id="progress"></div>
-      </div>
-
-      <div class="progress-text" id="progressText">
-        0 of 0 tasks completed
-      </div>
+    <div class="progress-number"
+      id="progressNumber">
+      0%
     </div>
 
+    <div class="progress-track">
 
-    <div class="card">
-      <div class="card-header">
-        <h3>Today's tasks</h3>
-        <div class="link" onclick="clearCompleted()">Clear done</div>
+      <div
+        class="progress-fill"
+        id="progressFill">
       </div>
 
-      <div class="add-row">
-        <input
-          id="taskInput"
-          class="task-input"
-          placeholder="What needs to get done?"
-          maxlength="80"
-          onkeydown="if(event.key==='Enter') addTask()"
-        >
-        <button class="add-btn" onclick="addTask()">+</button>
-      </div>
+    </div>
 
-      <div id="taskList" class="task-list" style="margin-top:14px;"></div>
+    <div class="small"
+      style="margin-top:12px"
+      id="progressText">
+
+      0 of 0 tasks completed
+
     </div>
 
 
-    <div class="card">
-      <div class="card-header">
-        <h3>🔥 Daily streak</h3>
+    <div class="stats-row">
+
+      <div class="mini-stat">
+        <strong id="streakSmall">
+          0 🔥
+        </strong>
+        <span class="small">
+          Streak
+        </span>
       </div>
 
-      <div class="streak">
-        <div class="fire">🔥</div>
-        <div class="streak-number" id="streak">0</div>
-        <div class="streak-label">days in a row</div>
+      <div class="mini-stat">
+        <strong id="xpSmall">
+          0
+        </strong>
+        <span class="small">
+          XP
+        </span>
       </div>
+
+      <div class="mini-stat">
+        <strong id="focusSmall">
+          0
+        </strong>
+        <span class="small">
+          Focus min
+        </span>
+      </div>
+
     </div>
 
+  </div>
 
-    <div class="card">
-      <div class="card-header">
-        <h3>Mindset</h3>
-      </div>
 
-      <div class="quote" id="quote">
-        Discipline beats motivation.
-      </div>
+  <!-- SMART DAILY MISSION -->
 
-      <div class="quote-author">
-        — FOCUS
-      </div>
+  <div class="card mission">
+
+    <div class="mission-badge">
+      SMART DAILY MISSION
     </div>
 
-  </section>
+    <h3 id="missionTitle">
+      Your mission is ready.
+    </h3>
+
+    <p id="missionDescription">
+      Complete today's small actions.
+    </p>
+
+    <div id="missionList"></div>
+
+    <button
+      class="action"
+      onclick="generateMission()">
+
+      Generate today's plan ✨
+
+    </button>
+
+  </div>
 
 
-  <!-- FOCUS TIMER -->
-  <section id="focus" class="screen">
+  <!-- TASKS -->
 
-    <h2 class="page-title">Focus Timer</h2>
-    <p class="page-sub">Put your phone down. Do the work.</p>
+  <div class="card">
 
-    <div class="card timer-card">
+    <div class="card-title">
 
-      <div class="timer-mode" id="timerMode">
-        Focus session
-      </div>
+      <h3>
+        Today's tasks
+      </h3>
 
-      <div class="timer" id="timer">
-        25:00
-      </div>
+      <button
+        class="small"
+        style="background:none;color:#7c93ff"
+        onclick="clearCompleted()">
 
-      <button class="timer-btn" id="timerButton" onclick="toggleTimer()">
-        START FOCUS
+        Clear done
+
       </button>
 
-      <button class="timer-secondary" onclick="resetTimer()">
-        Reset timer
+    </div>
+
+
+    <div class="task-input-row">
+
+      <input
+        id="taskInput"
+        class="task-input"
+        placeholder="What needs to get done?"
+        maxlength="120"
+        autocomplete="off">
+
+      <button
+        class="primary"
+        onclick="addTask()">
+
+        +
+
       </button>
 
     </div>
 
 
-    <div class="card">
-      <div class="card-header">
-        <h3>How it works</h3>
-      </div>
-
-      <div style="color:var(--muted);line-height:1.6;font-size:14px;">
-        <b style="color:white;">25 min</b> — Deep work<br>
-        <b style="color:white;">5 min</b> — Short break<br>
-        <b style="color:white;">Repeat</b> — Build momentum
-      </div>
+    <div
+      id="taskList"
+      class="task-list">
     </div>
 
-  </section>
+  </div>
 
 
-  <!-- STATS -->
-  <section id="statsScreen" class="screen">
+  <!-- MOTIVATION -->
 
-    <h2 class="page-title">Your progress</h2>
-    <p class="page-sub">Consistency is the real superpower.</p>
+  <div class="card">
 
+    <div class="card-title">
 
-    <div class="stats-grid">
+      <h3>
+        Daily motivation
+      </h3>
 
-      <div class="stat">
-        <div class="stat-icon">✅</div>
-        <div class="stat-number" id="totalCompleted">0</div>
-        <div class="stat-label">Completed</div>
-      </div>
-
-      <div class="stat">
-        <div class="stat-icon">🔥</div>
-        <div class="stat-number" id="statsStreak">0</div>
-        <div class="stat-label">Day streak</div>
-      </div>
-
-      <div class="stat">
-        <div class="stat-icon">🎯</div>
-        <div class="stat-number" id="totalTasks">0</div>
-        <div class="stat-label">Tasks created</div>
-      </div>
-
-      <div class="stat">
-        <div class="stat-icon">⏱️</div>
-        <div class="stat-number" id="sessions">0</div>
-        <div class="stat-label">Focus sessions</div>
-      </div>
+      <span>
+        💡
+      </span>
 
     </div>
 
+    <p
+      class="quote"
+      id="quote">
+    </p>
 
-    <div class="card" style="margin-top:18px;">
+  </div>
 
-      <div class="card-header">
-        <h3>This week</h3>
+
+  <!-- STREAK -->
+
+  <div class="card">
+
+    <div class="streak-box">
+
+      <div class="fire">
+        🔥
       </div>
 
-      <div class="week" id="week"></div>
+      <div>
 
-    </div>
-
-
-    <div class="card">
-      <div class="card-header">
-        <h3>Your rule</h3>
-      </div>
-
-      <div class="quote">
-        Don't wait for motivation.
-        Build discipline.
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- PROFILE -->
-  <section id="profile" class="screen">
-
-    <h2 class="page-title">Profile</h2>
-    <p class="page-sub">Your focus system.</p>
-
-
-    <div class="card streak">
-
-      <div class="fire">🔥</div>
-
-      <div class="streak-number" id="profileStreak">
-        0
-      </div>
-
-      <div class="streak-label">
-        day streak
-      </div>
-
-    </div>
-
-
-    <div class="card">
-
-      <div class="card-header">
-        <h3>Settings</h3>
-      </div>
-
-      <div class="setting">
-
-        <div>
-          <div class="setting-title">Notifications</div>
-          <div class="setting-sub">Daily focus reminders</div>
+        <div class="small">
+          Current daily streak
         </div>
 
-        <button class="toggle" id="notificationToggle" onclick="toggleSetting(this)">
-          <i></i>
+        <div class="streak-number">
+
+          <span id="streakBig">
+            0
+          </span>
+
+          days
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- FOCUS -->
+
+<section id="focus" class="view">
+
+  <div class="hero">
+
+    <div class="greeting">
+      Deep work
+    </div>
+
+    <h2>
+      Focus mode.
+    </h2>
+
+    <p>
+      One session. One goal. No excuses.
+    </p>
+
+  </div>
+
+
+  <div class="card">
+
+    <div class="timer-wrap">
+
+      <div
+        class="timer-mode"
+        id="timerMode">
+
+        Focus
+
+      </div>
+
+
+      <div class="timer-ring">
+
+        <div
+          class="timer"
+          id="timer">
+
+          25:00
+
+        </div>
+
+      </div>
+
+
+      <div class="timer-buttons">
+
+        <button
+          class="timer-btn primary-btn"
+          id="timerStart"
+          onclick="toggleTimer()">
+
+          Start
+
+        </button>
+
+        <button
+          class="timer-btn"
+          onclick="resetTimer()">
+
+          Reset
+
         </button>
 
       </div>
 
 
-      <div class="setting">
+      <div class="mode-buttons">
 
-        <div>
-          <div class="setting-title">Motivation</div>
-          <div class="setting-sub">Show daily mindset</div>
-        </div>
+        <button
+          class="mode-btn active"
+          id="focusModeBtn"
+          onclick="setTimerMode('focus')">
 
-        <button class="toggle on" id="motivationToggle" onclick="toggleSetting(this)">
-          <i></i>
+          25 min Focus
+
+        </button>
+
+        <button
+          class="mode-btn"
+          id="breakModeBtn"
+          onclick="setTimerMode('break')">
+
+          5 min Break
+
         </button>
 
       </div>
 
     </div>
 
+  </div>
 
-    <div class="card">
 
-      <div class="card-header">
-        <h3>FOCUS</h3>
+  <div class="card">
+
+    <div class="card-title">
+
+      <h3>
+        Focus tips
+      </h3>
+
+      <span>
+        🧠
+      </span>
+
+    </div>
+
+    <div class="setting">
+      <span>
+        Put your phone away
+      </span>
+      <span>📵</span>
+    </div>
+
+    <div class="setting">
+      <span>
+        Choose one task
+      </span>
+      <span>🎯</span>
+    </div>
+
+    <div class="setting">
+      <span>
+        Work until the timer ends
+      </span>
+      <span>⏱️</span>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- STATS -->
+
+<section id="stats" class="view">
+
+  <div class="hero">
+
+    <div class="greeting">
+      Your performance
+    </div>
+
+    <h2>
+      Weekly stats.
+    </h2>
+
+    <p>
+      Consistency is the real superpower.
+    </p>
+
+  </div>
+
+
+  <div class="card">
+
+    <div class="card-title">
+
+      <h3>
+        Last 7 days
+      </h3>
+
+      <span class="small">
+        Completed tasks
+      </span>
+
+    </div>
+
+    <div
+      class="week"
+      id="weekChart">
+    </div>
+
+  </div>
+
+
+  <div class="card">
+
+    <div class="card-title">
+
+      <h3>
+        All-time stats
+      </h3>
+
+    </div>
+
+    <div class="stats-row">
+
+      <div class="mini-stat">
+        <strong id="allTasks">
+          0
+        </strong>
+        <span class="small">
+          Tasks
+        </span>
       </div>
 
-      <div style="color:var(--muted);font-size:14px;line-height:1.6;">
-        Version 1.0<br><br>
-        Built for people who want to
-        stop procrastinating and start
-        getting things done.
+      <div class="mini-stat">
+        <strong id="allCompleted">
+          0
+        </strong>
+        <span class="small">
+          Completed
+        </span>
+      </div>
+
+      <div class="mini-stat">
+        <strong id="allFocus">
+          0
+        </strong>
+        <span class="small">
+          Focus min
+        </span>
       </div>
 
     </div>
 
-  </section>
+  </div>
+
+
+  <div class="card">
+
+    <div class="card-title">
+
+      <h3>
+        Completion rate
+      </h3>
+
+    </div>
+
+    <div
+      class="progress-number"
+      id="completionRate">
+
+      0%
+
+    </div>
+
+    <div class="progress-track">
+
+      <div
+        class="progress-fill"
+        id="completionFill">
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- PROFILE -->
+
+<section id="profile" class="view">
+
+  <div class="hero">
+
+    <div class="greeting">
+      Your profile
+    </div>
+
+    <h2>
+      Keep going.
+    </h2>
+
+    <p>
+      Build consistency one day at a time.
+    </p>
+
+  </div>
+
+
+  <div class="card profile-card">
+
+    <div
+      class="profile-avatar"
+      id="profileAvatar">
+
+      N
+
+    </div>
+
+    <h2 id="profileName">
+      Nino
+    </h2>
+
+    <div class="level">
+
+      Level
+      <span id="levelNumber">
+        1
+      </span>
+
+    </div>
+
+
+    <div class="xp-track">
+
+      <div
+        class="xp-fill"
+        id="xpFill">
+      </div>
+
+    </div>
+
+    <p
+      class="small"
+      id="xpText">
+
+      0 / 100 XP
+
+    </p>
+
+  </div>
+
+
+  <div class="card">
+
+    <div class="card-title">
+
+      <h3>
+        My goal
+      </h3>
+
+      <span>
+        🎯
+      </span>
+
+    </div>
+
+    <div
+      id="currentGoal"
+      class="quote">
+
+      Discipline
+
+    </div>
+
+  </div>
+
+
+  <div class="card">
+
+    <div class="card-title">
+
+      <h3>
+        Achievements
+      </h3>
+
+      <span>
+        🏆
+      </span>
+
+    </div>
+
+    <div class="setting">
+
+      <span>
+        First task completed
+      </span>
+
+      <span id="achievement1">
+        🔒
+      </span>
+
+    </div>
+
+    <div class="setting">
+
+      <span>
+        7 day streak
+      </span>
+
+      <span id="achievement2">
+        🔒
+      </span>
+
+    </div>
+
+    <div class="setting">
+
+      <span>
+        100 XP earned
+      </span>
+
+      <span id="achievement3">
+        🔒
+      </span>
+
+    </div>
+
+    <div class="setting">
+
+      <span>
+        60 focus minutes
+      </span>
+
+      <span id="achievement4">
+        🔒
+      </span>
+
+    </div>
+
+  </div>
+
+
+  <div class="card">
+
+    <div class="card-title">
+
+      <h3>
+        Settings
+      </h3>
+
+      <span>
+        ⚙️
+      </span>
+
+    </div>
+
+    <div class="setting">
+
+      <span>
+        Storage
+      </span>
+
+      <span class="small">
+        This device
+      </span>
+
+    </div>
+
+    <div class="setting">
+
+      <button
+        style="background:none;color:#ff5d73;font-weight:800"
+        onclick="resetEverything()">
+
+        Reset all data
+
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
 
 </div>
 
 
 <!-- NAVIGATION -->
 
-<nav class="nav">
+<nav class="bottom-nav">
 
-  <button class="nav-btn active" onclick="showScreen('home',this)">
-    <span>⌂</span>
+  <button
+    class="nav-btn active"
+    onclick="showView('home',this)">
+
+    <span class="nav-icon">
+      ⌂
+    </span>
+
     Home
+
   </button>
 
-  <button class="nav-btn" onclick="showScreen('focus',this)">
-    <span>⏱</span>
+
+  <button
+    class="nav-btn"
+    onclick="showView('focus',this)">
+
+    <span class="nav-icon">
+      ⏱️
+    </span>
+
     Focus
+
   </button>
 
-  <button class="nav-btn" onclick="showScreen('statsScreen',this)">
-    <span>◴</span>
+
+  <button
+    class="nav-btn"
+    onclick="showView('stats',this)">
+
+    <span class="nav-icon">
+      ◔
+    </span>
+
     Stats
+
   </button>
 
-  <button class="nav-btn" onclick="showScreen('profile',this)">
-    <span>●</span>
+
+  <button
+    class="nav-btn"
+    onclick="showView('profile',this)">
+
+    <span class="nav-icon">
+      ●
+    </span>
+
     Profile
+
   </button>
 
 </nav>
 
 
-<div class="toast" id="toast">
-  Saved
+<div
+  class="toast"
+  id="toast">
 </div>
 
 
@@ -923,16 +1497,151 @@ button{
    DATA
 ========================= */
 
-let data = JSON.parse(
-  localStorage.getItem("focusApp")
-) || {
-  tasks: [],
-  completedTotal: 0,
-  sessions: 0,
-  streak: 0,
-  lastActive: null,
-  motivation: true
+const STORAGE_KEY =
+  "FOCUS_WORLD_APP_V1";
+
+
+let data =
+  JSON.parse(
+    localStorage.getItem(STORAGE_KEY)
+  ) ||
+  {
+    tasks:[],
+    focusMinutes:0,
+    xp:0,
+    history:{},
+    name:"Nino",
+    goal:null
+  };
+
+
+/* =========================
+   DAILY PLANS
+========================= */
+
+const plans = {
+
+  discipline:{
+
+    title:"Become more disciplined",
+
+    description:
+      "Three small wins. No overthinking.",
+
+    tasks:[
+      "Make your bed and tidy your space for 5 minutes",
+      "Complete one 25-minute distraction-free focus session",
+      "Write down the 3 most important things for tomorrow"
+    ]
+
+  },
+
+
+  study:{
+
+    title:"Win your study session",
+
+    description:
+      "Study smarter by making the next step obvious.",
+
+    tasks:[
+      "Study one topic for 30 minutes",
+      "Review your notes for 10 minutes",
+      "Put your phone away for one focused session"
+    ]
+
+  },
+
+
+  fitness:{
+
+    title:"Move your body",
+
+    description:
+      "You don't need a perfect workout. You need to start.",
+
+    tasks:[
+      "Do 20–30 minutes of movement or training",
+      "Drink a glass of water before your next meal",
+      "Spend 5 minutes stretching"
+    ]
+
+  },
+
+
+  productivity:{
+
+    title:"Take control of your day",
+
+    description:
+      "Finish the important things before the distractions.",
+
+    tasks:[
+      "Choose your single most important task",
+      "Complete one 25-minute focus session",
+      "Spend 10 minutes cleaning or organizing your space"
+    ]
+
+  },
+
+
+  money:{
+
+    title:"Build better money habits",
+
+    description:
+      "Small financial actions compound.",
+
+    tasks:[
+      "Check your spending for the last 24 hours",
+      "Avoid one unnecessary purchase today",
+      "Spend 10 minutes learning something useful about money"
+    ]
+
+  },
+
+
+  self:{
+
+    title:"Invest in yourself",
+
+    description:
+      "One small improvement today is enough.",
+
+    tasks:[
+      "Read or learn for 20 minutes",
+      "Write down one thing you want to improve",
+      "Spend 10 minutes away from social media"
+    ]
+
+  }
+
 };
+
+
+/* =========================
+   MOTIVATION
+========================= */
+
+const quotes=[
+
+  "You don't need motivation. You need to start.",
+
+  "One focused hour can change your entire day.",
+
+  "Small actions become big results.",
+
+  "Your future self will thank you.",
+
+  "Stop waiting. Start doing.",
+
+  "Discipline beats motivation.",
+
+  "Focus on what you can do right now.",
+
+  "Progress, not perfection."
+
+];
 
 
 /* =========================
@@ -940,29 +1649,12 @@ let data = JSON.parse(
 ========================= */
 
 function save(){
+
   localStorage.setItem(
-    "focusApp",
+    STORAGE_KEY,
     JSON.stringify(data)
   );
-}
 
-
-/* =========================
-   TOAST
-========================= */
-
-function toast(message){
-
-  const el =
-    document.getElementById("toast");
-
-  el.innerText = message;
-
-  el.classList.add("show");
-
-  setTimeout(()=>{
-    el.classList.remove("show");
-  },1800);
 }
 
 
@@ -970,47 +1662,244 @@ function toast(message){
    DATE
 ========================= */
 
-function getDateKey(){
+function todayKey(){
 
-  const d = new Date();
+  const d =
+    new Date();
 
-  return d.toISOString().slice(0,10);
-}
+  return (
+    d.getFullYear()
+    + "-"
+    + String(d.getMonth()+1).padStart(2,"0")
+    + "-"
+    + String(d.getDate()).padStart(2,"0")
+  );
 
-
-function updateDate(){
-
-  const d = new Date();
-
-  document.getElementById("date").innerText =
-    d.toLocaleDateString(
-      "en-US",
-      {
-        month:"short",
-        day:"numeric"
-      }
-    );
 }
 
 
 /* =========================
-   GREETING
+   TOAST
 ========================= */
 
-function updateGreeting(){
+let toastTimeout;
 
-  const hour = new Date().getHours();
+function showToast(message){
 
-  let greeting = "Good evening";
+  const toast =
+    document.getElementById("toast");
 
-  if(hour < 12){
-    greeting = "Good morning";
-  }else if(hour < 18){
-    greeting = "Good afternoon";
+  toast.textContent =
+    message;
+
+  toast.classList.add("show");
+
+  clearTimeout(
+    toastTimeout
+  );
+
+  toastTimeout =
+    setTimeout(
+      () => {
+        toast.classList.remove("show");
+      },
+      2000
+    );
+
+}
+
+
+/* =========================
+   ONBOARDING
+========================= */
+
+function chooseGoal(button){
+
+  document
+    .querySelectorAll(".choice")
+    .forEach(
+      x => x.classList.remove("active")
+    );
+
+  button.classList.add("active");
+
+  data.goal =
+    button.dataset.goal;
+
+}
+
+
+function finishOnboarding(){
+
+  if(!data.goal){
+
+    data.goal =
+      "discipline";
+
   }
 
-  document.getElementById("greeting").innerText =
-    greeting;
+  save();
+
+  document
+    .getElementById("onboarding")
+    .classList.remove("show");
+
+  generateMission();
+
+  render();
+
+}
+
+
+function showOnboarding(){
+
+  document
+    .getElementById("onboarding")
+    .classList.add("show");
+
+}
+
+
+/* =========================
+   SMART MISSION
+========================= */
+
+function generateMission(){
+
+  const plan =
+    plans[
+      data.goal || "discipline"
+    ];
+
+  document
+    .getElementById("missionTitle")
+    .textContent =
+    plan.title;
+
+  document
+    .getElementById("missionDescription")
+    .textContent =
+    plan.description;
+
+  const container =
+    document.getElementById(
+      "missionList"
+    );
+
+  container.innerHTML="";
+
+  plan.tasks.forEach(
+    (text,index)=>{
+
+      const exists =
+        data.tasks.find(
+          task =>
+            task.date === todayKey()
+            &&
+            task.text === text
+        );
+
+      const row =
+        document.createElement("div");
+
+      row.className =
+        "task";
+
+      row.style.marginBottom =
+        "8px";
+
+      row.innerHTML = `
+
+        <button
+          class="check"
+          onclick="completeMissionTask(${index})">
+
+          ${exists && exists.done ? "✓" : ""}
+
+        </button>
+
+        <div class="task-text">
+          ${escapeHTML(text)}
+        </div>
+
+        <span class="small">
+          +10 XP
+        </span>
+
+      `;
+
+      container.appendChild(row);
+
+    }
+  );
+
+}
+
+
+/* =========================
+   MISSION COMPLETION
+========================= */
+
+function completeMissionTask(index){
+
+  const plan =
+    plans[
+      data.goal || "discipline"
+    ];
+
+  const text =
+    plan.tasks[index];
+
+  let task =
+    data.tasks.find(
+      t =>
+        t.date === todayKey()
+        &&
+        t.text === text
+    );
+
+  if(!task){
+
+    task = {
+
+      id:Date.now(),
+
+      text:text,
+
+      done:true,
+
+      date:todayKey()
+
+    };
+
+    data.tasks.push(task);
+
+    data.xp += 10;
+
+    data.history[todayKey()] =
+      (data.history[todayKey()] || 0) + 1;
+
+    showToast(
+      "+10 XP — Mission complete 🔥"
+    );
+
+  }
+
+  else if(!task.done){
+
+    task.done = true;
+
+    data.xp += 10;
+
+    data.history[todayKey()] =
+      (data.history[todayKey()] || 0) + 1;
+
+  }
+
+  save();
+
+  render();
+
 }
 
 
@@ -1021,76 +1910,134 @@ function updateGreeting(){
 function addTask(){
 
   const input =
-    document.getElementById("taskInput");
+    document.getElementById(
+      "taskInput"
+    );
 
   const text =
     input.value.trim();
 
   if(!text){
-    toast("Write a task first");
+
+    showToast(
+      "Write a task first."
+    );
+
     return;
+
   }
 
   data.tasks.push({
+
     id:Date.now(),
+
     text:text,
-    done:false
+
+    done:false,
+
+    date:todayKey()
+
   });
 
   input.value="";
 
   save();
+
   render();
 
-  toast("Task added ✓");
+  showToast(
+    "Task added 🎯"
+  );
+
 }
 
 
 function toggleTask(id){
 
   const task =
-    data.tasks.find(t=>t.id===id);
+    data.tasks.find(
+      t => t.id === id
+    );
 
-  if(!task) return;
+  if(!task)
+    return;
 
-  task.done = !task.done;
+
+  task.done =
+    !task.done;
+
 
   if(task.done){
 
-    data.completedTotal++;
+    data.xp += 10;
 
-    updateStreak();
+    data.history[task.date] =
+      (data.history[task.date] || 0)
+      + 1;
 
-    toast("Task completed 🔥");
+    showToast(
+      "+10 XP 🔥"
+    );
 
   }
 
+  else{
+
+    data.xp =
+      Math.max(
+        0,
+        data.xp - 10
+      );
+
+    data.history[task.date] =
+      Math.max(
+        0,
+        (data.history[task.date] || 0) - 1
+      );
+
+  }
+
+
   save();
+
   render();
+
 }
 
 
 function deleteTask(id){
 
   data.tasks =
-    data.tasks.filter(t=>t.id!==id);
+    data.tasks.filter(
+      t => t.id !== id
+    );
 
   save();
+
   render();
 
-  toast("Task deleted");
+  showToast(
+    "Task deleted"
+  );
+
 }
 
 
 function clearCompleted(){
 
   data.tasks =
-    data.tasks.filter(t=>!t.done);
+    data.tasks.filter(
+      t => !t.done
+    );
 
   save();
+
   render();
 
-  toast("Completed tasks cleared");
+  showToast(
+    "Completed tasks cleared"
+  );
+
 }
 
 
@@ -1098,64 +2045,114 @@ function clearCompleted(){
    RENDER TASKS
 ========================= */
 
-function renderTasks(){
-
-  const list =
-    document.getElementById("taskList");
-
-  list.innerHTML="";
-
-  if(data.tasks.length===0){
-
-    list.innerHTML =
-      `<div class="empty">
-        No tasks yet.<br>
-        Add one thing you want to accomplish.
-      </div>`;
-
-    return;
-  }
-
-  data.tasks.forEach(task=>{
-
-    const div =
-      document.createElement("div");
-
-    div.className =
-      "task " +
-      (task.done ? "done" : "");
-
-    div.innerHTML = `
-
-      <div
-        class="checkbox"
-        onclick="toggleTask(${task.id})">
-      </div>
-
-      <div class="task-name">
-        ${escapeHtml(task.text)}
-      </div>
-
-      <button
-        class="delete"
-        onclick="deleteTask(${task.id})">
-        ×
-      </button>
-    `;
-
-    list.appendChild(div);
-  });
-}
-
-
-function escapeHtml(text){
+function escapeHTML(text){
 
   const div =
     document.createElement("div");
 
-  div.textContent=text;
+  div.textContent =
+    text;
 
   return div.innerHTML;
+
+}
+
+
+function renderTasks(){
+
+  const list =
+    document.getElementById(
+      "taskList"
+    );
+
+  const tasks =
+    data.tasks.filter(
+      t => t.date === todayKey()
+    );
+
+  list.innerHTML="";
+
+
+  if(!tasks.length){
+
+    list.innerHTML = `
+
+      <div class="empty">
+
+        🎯
+
+        <br><br>
+
+        No tasks yet.
+
+        <br>
+
+        Add your own task or use your
+        Smart Daily Mission.
+
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+
+  tasks.forEach(
+    task => {
+
+      const element =
+        document.createElement(
+          "div"
+        );
+
+      element.className =
+        "task"
+        +
+        (
+          task.done
+          ? " done"
+          : ""
+        );
+
+
+      element.innerHTML = `
+
+        <button
+          class="check"
+          onclick="toggleTask(${task.id})">
+
+          ${task.done ? "✓" : ""}
+
+        </button>
+
+
+        <div class="task-text">
+
+          ${escapeHTML(task.text)}
+
+        </div>
+
+
+        <button
+          class="delete"
+          onclick="deleteTask(${task.id})">
+
+          🗑
+
+        </button>
+
+      `;
+
+
+      list.appendChild(
+        element
+      );
+
+    }
+  );
+
 }
 
 
@@ -1165,30 +2162,84 @@ function escapeHtml(text){
 
 function updateProgress(){
 
+  const tasks =
+    data.tasks.filter(
+      t => t.date === todayKey()
+    );
+
   const total =
-    data.tasks.length;
+    tasks.length;
 
   const completed =
-    data.tasks.filter(t=>t.done).length;
+    tasks.filter(
+      t => t.done
+    ).length;
+
 
   const percent =
-    total===0
-      ? 0
-      : Math.round(
-          completed/total*100
-        );
+    total === 0
+    ? 0
+    : Math.round(
+        completed / total * 100
+      );
 
-  document.getElementById("percent")
-    .innerText =
-    percent+"%";
 
-  document.getElementById("progress")
+  document
+    .getElementById(
+      "progressNumber"
+    )
+    .textContent =
+    percent + "%";
+
+
+  document
+    .getElementById(
+      "progressFill"
+    )
     .style.width =
-    percent+"%";
+    percent + "%";
 
-  document.getElementById("progressText")
-    .innerText =
+
+  document
+    .getElementById(
+      "progressText"
+    )
+    .textContent =
     `${completed} of ${total} tasks completed`;
+
+
+  document
+    .getElementById(
+      "streakSmall"
+    )
+    .textContent =
+    calculateStreak()
+    + " 🔥";
+
+
+  document
+    .getElementById(
+      "streakBig"
+    )
+    .textContent =
+    calculateStreak();
+
+
+  document
+    .getElementById(
+      "xpSmall"
+    )
+    .textContent =
+    data.xp;
+
+
+  document
+    .getElementById(
+      "focusSmall"
+    )
+    .textContent =
+    data.focusMinutes;
+
 }
 
 
@@ -1196,132 +2247,104 @@ function updateProgress(){
    STREAK
 ========================= */
 
-function updateStreak(){
+function calculateStreak(){
 
-  const today =
-    getDateKey();
+  let streak=0;
 
-  if(data.lastActive===today){
-    return;
-  }
-
-  if(data.lastActive){
-
-    const last =
-      new Date(data.lastActive);
-
-    const now =
-      new Date(today);
-
-    const diff =
-      Math.round(
-        (now-last)/86400000
-      );
-
-    if(diff===1){
-      data.streak++;
-    }else if(diff>1){
-      data.streak=1;
-    }
-
-  }else{
-    data.streak=1;
-  }
-
-  data.lastActive=today;
-
-  save();
-}
-
-
-/* =========================
-   STATS
-========================= */
-
-function updateStats(){
-
-  document.getElementById(
-    "totalCompleted"
-  ).innerText =
-    data.completedTotal;
-
-  document.getElementById(
-    "totalTasks"
-  ).innerText =
-    data.tasks.length;
-
-  document.getElementById(
-    "sessions"
-  ).innerText =
-    data.sessions;
-
-  document.getElementById(
-    "statsStreak"
-  ).innerText =
-    data.streak;
-
-  document.getElementById(
-    "streak"
-  ).innerText =
-    data.streak;
-
-  document.getElementById(
-    "profileStreak"
-  ).innerText =
-    data.streak;
-}
-
-
-/* =========================
-   WEEK
-========================= */
-
-function renderWeek(){
-
-  const container =
-    document.getElementById("week");
-
-  container.innerHTML="";
-
-  const names =
-    ["S","M","T","W","T","F","S"];
-
-  const today =
+  const date =
     new Date();
 
-  const day =
-    today.getDay();
 
-  for(let i=0;i<7;i++){
+  while(true){
 
-    const d =
-      new Date(today);
+    const key =
+      date
+        .toISOString()
+        .slice(0,10);
 
-    d.setDate(
-      today.getDate() - day + i
-    );
 
-    const div =
-      document.createElement("div");
+    if(
+      (data.history[key] || 0)
+      > 0
+    ){
 
-    div.className =
-      "day " +
-      (i===day ? "today":"");
+      streak++;
 
-    div.innerHTML=`
+      date.setDate(
+        date.getDate()-1
+      );
 
-      <div>
-        ${names[i]}
-      </div>
+    }
 
-      <div class="day-circle
-        ${i===day ? "active":""}">
-        ${d.getDate()}
-      </div>
-    `;
+    else{
 
-    container.appendChild(div);
+      break;
+
+    }
+
   }
+
+
+  return streak;
+
+}
+
+
+/* =========================
+   GREETING
+========================= */
+
+function updateGreeting(){
+
+  const hour =
+    new Date().getHours();
+
+  let text =
+    "Good morning";
+
+
+  if(
+    hour >= 12
+    &&
+    hour < 18
+  ){
+
+    text =
+      "Good afternoon";
+
+  }
+
+
+  if(hour >= 18){
+
+    text =
+      "Good evening";
+
+  }
+
+
+  document
+    .getElementById(
+      "greeting"
+    )
+    .textContent =
+    text;
+
+
+  document
+    .getElementById(
+      "todayDate"
+    )
+    .textContent =
+    new Date()
+      .toLocaleDateString(
+        "en-US",
+        {
+          month:"short",
+          day:"numeric"
+        }
+      );
+
 }
 
 
@@ -1329,42 +2352,364 @@ function renderWeek(){
    MOTIVATION
 ========================= */
 
-const quotes = [
+function updateQuote(){
 
-  "Discipline beats motivation.",
-
-  "You don't need more time. You need more focus.",
-
-  "Start before you're ready.",
-
-  "One focused hour can change your day.",
-
-  "Stop waiting. Start doing.",
-
-  "Your future self is watching.",
-
-  "Consistency creates results.",
-
-  "Do the hard thing first.",
-
-  "Less scrolling. More building.",
-
-  "Small progress is still progress."
-];
+  const index =
+    new Date().getDate()
+    %
+    quotes.length;
 
 
-function randomQuote(){
+  document
+    .getElementById(
+      "quote"
+    )
+    .textContent =
+    quotes[index];
 
-  const q =
-    quotes[
-      Math.floor(
-        Math.random()*quotes.length
-      )
-    ];
+}
 
-  document.getElementById(
-    "quote"
-  ).innerText=q;
+
+/* =========================
+   XP / LEVEL
+========================= */
+
+function updateProfile(){
+
+  const initial =
+    (
+      data.name
+      ||
+      "N"
+    )
+    .charAt(0)
+    .toUpperCase();
+
+
+  document
+    .getElementById(
+      "headerAvatar"
+    )
+    .textContent =
+    initial;
+
+
+  document
+    .getElementById(
+      "profileAvatar"
+    )
+    .textContent =
+    initial;
+
+
+  document
+    .getElementById(
+      "profileName"
+    )
+    .textContent =
+    data.name || "Nino";
+
+
+  const level =
+    Math.floor(
+      data.xp / 100
+    ) + 1;
+
+
+  const currentXP =
+    data.xp % 100;
+
+
+  document
+    .getElementById(
+      "levelNumber"
+    )
+    .textContent =
+    level;
+
+
+  document
+    .getElementById(
+      "xpFill"
+    )
+    .style.width =
+    currentXP + "%";
+
+
+  document
+    .getElementById(
+      "xpText"
+    )
+    .textContent =
+    `${currentXP} / 100 XP`;
+
+
+  const labels = {
+
+    discipline:"🔥 Discipline",
+
+    study:"📚 Study",
+
+    fitness:"🏋️ Fitness",
+
+    productivity:"⚡ Productivity",
+
+    money:"💰 Money",
+
+    self:"🧠 Self-growth"
+
+  };
+
+
+  document
+    .getElementById(
+      "currentGoal"
+    )
+    .textContent =
+    labels[
+      data.goal
+    ]
+    ||
+    labels.discipline;
+
+
+  const completed =
+    data.tasks.filter(
+      t => t.done
+    ).length;
+
+
+  document
+    .getElementById(
+      "achievement1"
+    )
+    .textContent =
+    completed >= 1
+    ? "🏆"
+    : "🔒";
+
+
+  document
+    .getElementById(
+      "achievement2"
+    )
+    .textContent =
+    calculateStreak() >= 7
+    ? "🏆"
+    : "🔒";
+
+
+  document
+    .getElementById(
+      "achievement3"
+    )
+    .textContent =
+    data.xp >= 100
+    ? "🏆"
+    : "🔒";
+
+
+  document
+    .getElementById(
+      "achievement4"
+    )
+    .textContent =
+    data.focusMinutes >= 60
+    ? "🏆"
+    : "🔒";
+
+}
+
+
+/* =========================
+   STATS
+========================= */
+
+function renderStats(){
+
+  const total =
+    data.tasks.length;
+
+
+  const completed =
+    data.tasks.filter(
+      t => t.done
+    ).length;
+
+
+  const rate =
+    total === 0
+    ? 0
+    : Math.round(
+        completed / total * 100
+      );
+
+
+  document
+    .getElementById(
+      "allTasks"
+    )
+    .textContent =
+    total;
+
+
+  document
+    .getElementById(
+      "allCompleted"
+    )
+    .textContent =
+    completed;
+
+
+  document
+    .getElementById(
+      "allFocus"
+    )
+    .textContent =
+    data.focusMinutes;
+
+
+  document
+    .getElementById(
+      "completionRate"
+    )
+    .textContent =
+    rate + "%";
+
+
+  document
+    .getElementById(
+      "completionFill"
+    )
+    .style.width =
+    rate + "%";
+
+
+  const chart =
+    document.getElementById(
+      "weekChart"
+    );
+
+
+  chart.innerHTML="";
+
+
+  const days=[];
+
+
+  for(
+    let i=6;
+    i>=0;
+    i--
+  ){
+
+    const date =
+      new Date();
+
+    date.setDate(
+      date.getDate()-i
+    );
+
+    days.push(
+      date
+    );
+
+  }
+
+
+  const values =
+    days.map(
+      date =>
+        data.history[
+          date
+            .toISOString()
+            .slice(0,10)
+        ]
+        ||
+        0
+    );
+
+
+  const max =
+    Math.max(
+      ...values,
+      1
+    );
+
+
+  days.forEach(
+    date => {
+
+      const key =
+        date
+          .toISOString()
+          .slice(0,10);
+
+
+      const value =
+        data.history[key]
+        ||
+        0;
+
+
+      const height =
+        Math.round(
+          value / max * 100
+        );
+
+
+      const element =
+        document.createElement(
+          "div"
+        );
+
+
+      element.className =
+        "day";
+
+
+      element.innerHTML = `
+
+        <div class="day-name">
+
+          ${date
+            .toLocaleDateString(
+              "en-US",
+              {
+                weekday:"short"
+              }
+            )
+            .slice(0,2)}
+
+        </div>
+
+
+        <div class="day-bar">
+
+          <div
+            class="day-fill"
+            style="height:${height}%">
+          </div>
+
+        </div>
+
+
+        <div class="day-value">
+
+          ${value}
+
+        </div>
+
+      `;
+
+
+      chart.appendChild(
+        element
+      );
+
+    }
+  );
+
 }
 
 
@@ -1372,26 +2717,56 @@ function randomQuote(){
    NAVIGATION
 ========================= */
 
-function showScreen(id,button){
+function showView(
+  id,
+  button
+){
 
-  document.querySelectorAll(
-    ".screen"
-  ).forEach(screen=>{
-    screen.classList.remove("active");
-  });
+  document
+    .querySelectorAll(
+      ".view"
+    )
+    .forEach(
+      view =>
+        view.classList.remove(
+          "active"
+        )
+    );
 
-  document.getElementById(id)
-    .classList.add("active");
 
-  document.querySelectorAll(
-    ".nav-btn"
-  ).forEach(btn=>{
-    btn.classList.remove("active");
-  });
+  document
+    .getElementById(
+      id
+    )
+    .classList.add(
+      "active"
+    );
 
-  button.classList.add("active");
 
-  updateStats();
+  document
+    .querySelectorAll(
+      ".nav-btn"
+    )
+    .forEach(
+      btn =>
+        btn.classList.remove(
+          "active"
+        )
+    );
+
+
+  button.classList.add(
+    "active"
+  );
+
+
+  window.scrollTo(
+    {
+      top:0,
+      behavior:"smooth"
+    }
+  );
+
 }
 
 
@@ -1399,28 +2774,98 @@ function showScreen(id,button){
    TIMER
 ========================= */
 
-let timerSeconds = 25*60;
-let timerRunning = false;
-let timerInterval = null;
-let breakMode = false;
+let timerMode =
+  "focus";
+
+let timerSeconds =
+  25 * 60;
+
+let timerRunning =
+  false;
+
+let timerInterval =
+  null;
 
 
 function updateTimer(){
 
-  const min =
+  const minutes =
     Math.floor(
-      timerSeconds/60
+      timerSeconds / 60
     );
 
-  const sec =
-    timerSeconds%60;
 
-  document.getElementById(
-    "timer"
-  ).innerText =
-    String(min).padStart(2,"0")
-    +":"+
-    String(sec).padStart(2,"0");
+  const seconds =
+    timerSeconds % 60;
+
+
+  document
+    .getElementById(
+      "timer"
+    )
+    .textContent =
+    String(
+      minutes
+    ).padStart(2,"0")
+    +
+    ":"
+    +
+    String(
+      seconds
+    ).padStart(2,"0");
+
+}
+
+
+function setTimerMode(
+  mode
+){
+
+  stopTimer();
+
+
+  timerMode =
+    mode;
+
+
+  timerSeconds =
+    mode === "focus"
+    ? 25 * 60
+    : 5 * 60;
+
+
+  document
+    .getElementById(
+      "timerMode"
+    )
+    .textContent =
+    mode === "focus"
+    ? "Focus"
+    : "Break";
+
+
+  document
+    .getElementById(
+      "focusModeBtn"
+    )
+    .classList.toggle(
+      "active",
+      mode === "focus"
+    );
+
+
+  document
+    .getElementById(
+      "breakModeBtn"
+    )
+    .classList.toggle(
+      "active",
+      mode === "break"
+    );
+
+
+  updateTimer();
+
 }
 
 
@@ -1428,137 +2873,222 @@ function toggleTimer(){
 
   if(timerRunning){
 
-    clearInterval(
-      timerInterval
-    );
+    stopTimer();
 
-    timerRunning=false;
-
-    document.getElementById(
-      "timerButton"
-    ).innerText="START FOCUS";
-
-    return;
   }
 
-  timerRunning=true;
+  else{
 
-  document.getElementById(
-    "timerButton"
-  ).innerText="PAUSE";
+    startTimer();
 
-  timerInterval =
-    setInterval(()=>{
+  }
 
-      timerSeconds--;
-
-      updateTimer();
-
-      if(timerSeconds<=0){
-
-        clearInterval(
-          timerInterval
-        );
-
-        timerRunning=false;
-
-        if(!breakMode){
-
-          data.sessions++;
-
-          save();
-
-          toast("Focus session complete 🔥");
-
-          breakMode=true;
-
-          timerSeconds=5*60;
-
-          document.getElementById(
-            "timerMode"
-          ).innerText="Break time";
-
-        }else{
-
-          breakMode=false;
-
-          timerSeconds=25*60;
-
-          document.getElementById(
-            "timerMode"
-          ).innerText="Focus session";
-
-        }
-
-        updateTimer();
-
-        document.getElementById(
-          "timerButton"
-        ).innerText="START";
-      }
-
-    },1000);
 }
 
 
-function resetTimer(){
+function startTimer(){
+
+  timerRunning =
+    true;
+
+
+  document
+    .getElementById(
+      "timerStart"
+    )
+    .textContent =
+    "Pause";
+
+
+  timerInterval =
+    setInterval(
+      () => {
+
+        if(
+          timerSeconds > 0
+        ){
+
+          timerSeconds--;
+
+          updateTimer();
+
+          return;
+
+        }
+
+
+        stopTimer();
+
+
+        if(
+          timerMode === "focus"
+        ){
+
+          data.focusMinutes += 25;
+
+          data.xp += 25;
+
+          save();
+
+          render();
+
+          showToast(
+            "Focus complete 🔥"
+          );
+
+
+          setTimerMode(
+            "break"
+          );
+
+        }
+
+        else{
+
+          showToast(
+            "Break complete. Back to work."
+          );
+
+
+          setTimerMode(
+            "focus"
+          );
+
+        }
+
+      },
+      1000
+    );
+
+}
+
+
+function stopTimer(){
+
+  timerRunning =
+    false;
+
 
   clearInterval(
     timerInterval
   );
 
-  timerRunning=false;
-  breakMode=false;
-  timerSeconds=25*60;
 
-  document.getElementById(
-    "timerMode"
-  ).innerText="Focus session";
+  document
+    .getElementById(
+      "timerStart"
+    )
+    .textContent =
+    "Start";
 
-  document.getElementById(
-    "timerButton"
-  ).innerText="START FOCUS";
+}
+
+
+function resetTimer(){
+
+  stopTimer();
+
+
+  timerSeconds =
+    timerMode === "focus"
+    ? 25 * 60
+    : 5 * 60;
+
 
   updateTimer();
+
 }
 
 
 /* =========================
-   SETTINGS
+   RESET
 ========================= */
 
-function toggleSetting(button){
+function resetEverything(){
 
-  button.classList.toggle("on");
+  const confirmed =
+    confirm(
+      "Reset all FOCUS data? This cannot be undone."
+    );
+
+
+  if(!confirmed)
+    return;
+
+
+  localStorage.removeItem(
+    STORAGE_KEY
+  );
+
+
+  location.reload();
 
 }
 
 
 /* =========================
-   MAIN RENDER
+   ENTER KEY
+========================= */
+
+document
+  .getElementById(
+    "taskInput"
+  )
+  .addEventListener(
+    "keydown",
+    event => {
+
+      if(
+        event.key === "Enter"
+      ){
+
+        addTask();
+
+      }
+
+    }
+  );
+
+
+/* =========================
+   RENDER
 ========================= */
 
 function render(){
+
+  updateGreeting();
 
   renderTasks();
 
   updateProgress();
 
-  updateStats();
+  updateQuote();
 
-  renderWeek();
+  updateProfile();
+
+  renderStats();
+
+  generateMission();
+
+  updateTimer();
+
 }
 
 
+render();
+
+
 /* =========================
-   START
+   FIRST RUN
 ========================= */
 
-updateGreeting();
-updateDate();
-updateTimer();
-randomQuote();
-render();
+if(
+  !data.goal
+){
+
+  showOnboarding();
+
+}
 
 </script>
 
