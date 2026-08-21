@@ -4,526 +4,701 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>MY STORY — Frizerski salon Daruvar</title>
+<title>My Story — Frizerski salon Daruvar</title>
+
+<meta name="description" content="My Story — premium frizerski salon u Daruvaru. Stil, njega i frizura koja priča tvoju priču.">
 
 <style>
-
 *{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 html{
-  scroll-behavior:smooth;
+    scroll-behavior:smooth;
 }
 
 body{
-  background:#0b0b0c;
-  color:#f5f1eb;
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    "SF Pro Display",
-    Arial,
-    sans-serif;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    background:#0b0b0c;
+    color:#f5f2ed;
+    overflow-x:hidden;
 }
 
-a{
-  color:inherit;
-  text-decoration:none;
+:root{
+    --gold:#d7b77a;
+    --gold2:#f0d39a;
+    --cream:#f5f2ed;
+    --muted:#a6a19a;
+    --dark:#0b0b0c;
+    --card:#151516;
+    --border:rgba(255,255,255,.10);
 }
 
-.container{
-  width:100%;
-  max-width:1100px;
-  margin:auto;
-  padding:0 22px;
-}
-
-/* NAV */
+/* NAVBAR */
 
 nav{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  z-index:100;
-  padding:18px 0;
-  background:rgba(11,11,12,.78);
-  backdrop-filter:blur(20px);
-  border-bottom:1px solid rgba(255,255,255,.08);
-}
-
-.nav-inner{
-  max-width:1100px;
-  margin:auto;
-  padding:0 22px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    height:76px;
+    z-index:1000;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 7%;
+    background:rgba(11,11,12,.72);
+    backdrop-filter:blur(20px);
+    border-bottom:1px solid rgba(255,255,255,.06);
 }
 
 .logo{
-  font-size:22px;
-  font-weight:800;
-  letter-spacing:4px;
+    font-size:22px;
+    font-weight:700;
+    letter-spacing:5px;
 }
 
 .logo span{
-  color:#c9a66b;
+    color:var(--gold);
 }
 
 .nav-links{
-  display:flex;
-  gap:28px;
-  font-size:13px;
-  color:#aaa;
+    display:flex;
+    gap:34px;
+    list-style:none;
+}
+
+.nav-links a{
+    color:#ddd;
+    text-decoration:none;
+    font-size:14px;
+    transition:.3s;
 }
 
 .nav-links a:hover{
-  color:#fff;
+    color:var(--gold);
 }
 
-.nav-button{
-  padding:10px 16px;
-  border:1px solid #c9a66b;
-  color:#c9a66b;
-  border-radius:30px;
+.nav-btn{
+    padding:12px 20px;
+    border:1px solid var(--gold);
+    color:var(--gold);
+    text-decoration:none;
+    border-radius:30px;
+    font-size:13px;
+    transition:.3s;
+}
+
+.nav-btn:hover{
+    background:var(--gold);
+    color:#111;
+}
+
+.menu{
+    display:none;
+    font-size:27px;
 }
 
 /* HERO */
 
 .hero{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  position:relative;
-  overflow:hidden;
-  background:
-    radial-gradient(
-      circle at 80% 25%,
-      rgba(201,166,107,.20),
-      transparent 35%
-    ),
-    radial-gradient(
-      circle at 20% 80%,
-      rgba(255,255,255,.06),
-      transparent 30%
-    );
-}
-
-.hero:before{
-  content:"";
-  position:absolute;
-  width:500px;
-  height:500px;
-  border-radius:50%;
-  border:1px solid rgba(201,166,107,.12);
-  right:-180px;
-  top:20%;
+    min-height:100vh;
+    position:relative;
+    display:flex;
+    align-items:center;
+    padding:120px 7% 70px;
+    background:
+        linear-gradient(90deg,rgba(7,7,8,.96) 0%,rgba(7,7,8,.78) 42%,rgba(7,7,8,.25) 100%),
+        url("https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=2000&q=90");
+    background-size:cover;
+    background-position:center;
 }
 
 .hero-content{
-  position:relative;
-  z-index:2;
-  max-width:700px;
+    max-width:720px;
 }
 
 .eyebrow{
-  color:#c9a66b;
-  letter-spacing:4px;
-  font-size:11px;
-  font-weight:800;
-  margin-bottom:20px;
+    color:var(--gold);
+    text-transform:uppercase;
+    letter-spacing:4px;
+    font-size:12px;
+    margin-bottom:22px;
 }
 
 .hero h1{
-  font-family:Georgia,serif;
-  font-weight:400;
-  font-size:clamp(58px,10vw,110px);
-  line-height:.9;
-  letter-spacing:-5px;
+    font-size:clamp(55px,9vw,110px);
+    line-height:.92;
+    letter-spacing:-5px;
+    margin-bottom:30px;
 }
 
 .hero h1 span{
-  color:#c9a66b;
-  font-style:italic;
+    color:var(--gold);
+    font-family:Georgia,serif;
+    font-style:italic;
+    font-weight:400;
 }
 
 .hero p{
-  margin-top:28px;
-  max-width:500px;
-  color:#aaa;
-  line-height:1.7;
-  font-size:16px;
+    color:#c7c2bb;
+    max-width:570px;
+    line-height:1.8;
+    font-size:17px;
+    margin-bottom:40px;
 }
 
 .hero-buttons{
-  display:flex;
-  gap:12px;
-  margin-top:35px;
-  flex-wrap:wrap;
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
 }
 
 .btn{
-  padding:15px 23px;
-  border-radius:40px;
-  font-size:13px;
-  font-weight:800;
-  transition:.25s;
+    padding:16px 28px;
+    border-radius:40px;
+    text-decoration:none;
+    font-weight:600;
+    font-size:14px;
+    transition:.3s;
 }
 
 .btn-primary{
-  background:#c9a66b;
-  color:#111;
+    background:var(--gold);
+    color:#111;
 }
 
 .btn-primary:hover{
-  transform:translateY(-3px);
-  box-shadow:0 15px 35px rgba(201,166,107,.2);
+    background:var(--gold2);
+    transform:translateY(-2px);
 }
 
-.btn-secondary{
-  border:1px solid rgba(255,255,255,.2);
-  color:#ddd;
+.btn-outline{
+    border:1px solid rgba(255,255,255,.25);
+    color:white;
 }
 
-.btn-secondary:hover{
-  border-color:#c9a66b;
-  color:#c9a66b;
+.btn-outline:hover{
+    border-color:var(--gold);
+    color:var(--gold);
 }
 
-/* SECTION */
+.hero-bottom{
+    position:absolute;
+    bottom:30px;
+    left:7%;
+    color:#777;
+    font-size:11px;
+    letter-spacing:2px;
+}
+
+/* GENERAL */
 
 section{
-  padding:110px 0;
+    padding:110px 7%;
 }
 
 .section-label{
-  color:#c9a66b;
-  font-size:10px;
-  letter-spacing:3px;
-  font-weight:800;
-  margin-bottom:13px;
+    color:var(--gold);
+    text-transform:uppercase;
+    letter-spacing:3px;
+    font-size:11px;
+    margin-bottom:15px;
 }
 
 .section-title{
-  font-family:Georgia,serif;
-  font-size:45px;
-  font-weight:400;
+    font-size:clamp(38px,5vw,65px);
+    line-height:1;
+    margin-bottom:25px;
 }
 
-.section-description{
-  color:#888;
-  max-width:550px;
-  line-height:1.7;
-  margin-top:14px;
+.section-title span{
+    color:var(--gold);
+    font-family:Georgia,serif;
+    font-style:italic;
+    font-weight:400;
+}
+
+/* ABOUT */
+
+.about{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:80px;
+    align-items:center;
+    background:#101011;
+}
+
+.about-image{
+    min-height:580px;
+    border-radius:4px;
+    background:
+        linear-gradient(to top,rgba(0,0,0,.3),transparent),
+        url("https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=1200&q=85");
+    background-size:cover;
+    background-position:center;
+}
+
+.about-text p{
+    color:var(--muted);
+    line-height:1.9;
+    font-size:16px;
+    margin-bottom:22px;
+}
+
+.signature{
+    margin-top:30px;
+    color:var(--gold);
+    font-family:Georgia,serif;
+    font-style:italic;
+    font-size:27px;
 }
 
 /* SERVICES */
 
 .services{
-  background:#101011;
+    background:#0b0b0c;
+}
+
+.services-head{
+    max-width:650px;
+    margin-bottom:55px;
+}
+
+.services-head p{
+    color:var(--muted);
+    line-height:1.8;
 }
 
 .service-grid{
-  display:grid;
-  grid-template-columns:
-    repeat(3,1fr);
-  gap:14px;
-  margin-top:45px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
 }
 
 .service{
-  padding:30px;
-  min-height:220px;
-  border:1px solid #242426;
-  background:
-    linear-gradient(
-      145deg,
-      #171718,
-      #101011
-    );
-  transition:.3s;
+    padding:35px;
+    min-height:230px;
+    background:linear-gradient(145deg,#181819,#101011);
+    border:1px solid var(--border);
+    transition:.4s;
 }
 
 .service:hover{
-  transform:translateY(-5px);
-  border-color:#c9a66b;
+    transform:translateY(-8px);
+    border-color:rgba(215,183,122,.45);
 }
 
 .service-number{
-  color:#c9a66b;
-  font-size:11px;
-  letter-spacing:2px;
+    color:var(--gold);
+    font-size:12px;
+    letter-spacing:2px;
+    margin-bottom:30px;
 }
 
 .service h3{
-  margin-top:55px;
-  font-family:Georgia,serif;
-  font-size:25px;
-  font-weight:400;
+    font-size:23px;
+    margin-bottom:14px;
 }
 
 .service p{
-  color:#777;
-  margin-top:10px;
-  font-size:13px;
-  line-height:1.6;
-}
-
-/* STORY */
-
-.story-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:60px;
-  align-items:center;
-}
-
-.story-box{
-  height:520px;
-  background:
-    radial-gradient(
-      circle at 50% 30%,
-      #c9a66b38,
-      transparent 35%
-    ),
-    linear-gradient(
-      145deg,
-      #29221a,
-      #111
-    );
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  position:relative;
-}
-
-.story-box:after{
-  content:"MY STORY";
-  font-family:Georgia,serif;
-  font-size:50px;
-  color:#ffffff10;
-  letter-spacing:5px;
-}
-
-.story-text p{
-  color:#999;
-  line-height:1.9;
-  margin-top:20px;
-}
-
-.quote{
-  margin-top:30px;
-  padding-left:20px;
-  border-left:2px solid #c9a66b;
-  font-family:Georgia,serif;
-  font-size:22px;
-  line-height:1.5;
+    color:#898681;
+    line-height:1.7;
+    font-size:14px;
 }
 
 /* GALLERY */
 
 .gallery{
-  background:#101011;
+    background:#101011;
+}
+
+.gallery-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+    margin-bottom:45px;
+}
+
+.gallery-head p{
+    max-width:400px;
+    color:var(--muted);
+    line-height:1.7;
 }
 
 .gallery-grid{
-  display:grid;
-  grid-template-columns:
-    1.3fr 1fr 1fr;
-  grid-template-rows:
-    230px 230px;
-  gap:10px;
-  margin-top:45px;
+    display:grid;
+    grid-template-columns:1.4fr 1fr 1fr;
+    grid-template-rows:270px 270px;
+    gap:12px;
 }
 
 .gallery-item{
-  position:relative;
-  overflow:hidden;
-  background:
-    linear-gradient(
-      135deg,
-      #30271d,
-      #151515
-    );
+    background-size:cover;
+    background-position:center;
+    transition:.5s;
+    overflow:hidden;
 }
 
-.gallery-item:nth-child(1){
-  grid-row:span 2;
+.gallery-item:hover{
+    transform:scale(.985);
 }
 
-.gallery-item:after{
-  content:"MY STORY";
-  position:absolute;
-  left:20px;
-  bottom:18px;
-  font-size:10px;
-  letter-spacing:3px;
-  color:#c9a66b;
+.g1{
+    grid-row:span 2;
+    background-image:url("https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1200&q=85");
+}
+
+.g2{
+    background-image:url("https://images.unsplash.com/photo-1600948836101-f9ffda59d250?auto=format&fit=crop&w=900&q=85");
+}
+
+.g3{
+    background-image:url("https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=900&q=85");
+}
+
+.g4{
+    background-image:url("https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=900&q=85");
+}
+
+.g5{
+    background-image:url("https://images.unsplash.com/photo-1560869713-da86a9ec76d2?auto=format&fit=crop&w=900&q=85");
+}
+
+/* EXPERIENCE */
+
+.experience{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:70px;
+    align-items:center;
+}
+
+.experience-box{
+    border-left:1px solid var(--gold);
+    padding-left:35px;
+}
+
+.experience-box p{
+    color:var(--muted);
+    line-height:1.9;
+    margin-bottom:25px;
+}
+
+.features{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+
+.feature{
+    padding:25px 0;
+    border-top:1px solid var(--border);
+}
+
+.feature strong{
+    display:block;
+    margin-bottom:8px;
+}
+
+.feature span{
+    color:#85827e;
+    font-size:13px;
+}
+
+/* BOOKING */
+
+.booking{
+    background:
+        linear-gradient(90deg,rgba(10,10,11,.96),rgba(10,10,11,.82)),
+        url("https://images.unsplash.com/photo-1527799820374-dcf8e7f3f16a?auto=format&fit=crop&w=2000&q=85");
+    background-size:cover;
+    background-position:center;
+}
+
+.booking-container{
+    max-width:900px;
+}
+
+.booking-container p{
+    color:#aaa;
+    max-width:600px;
+    line-height:1.8;
+    margin-bottom:35px;
+}
+
+.booking-cards{
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+}
+
+.booking-card{
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.12);
+    padding:22px 25px;
+    min-width:210px;
+}
+
+.booking-card small{
+    color:#888;
+    display:block;
+    margin-bottom:7px;
+}
+
+.booking-card strong{
+    color:white;
 }
 
 /* CONTACT */
 
 .contact{
-  text-align:center;
-}
-
-.contact-card{
-  margin-top:40px;
-  padding:45px;
-  border:1px solid #292929;
-  background:
-    radial-gradient(
-      circle at 50% 0,
-      #c9a66b18,
-      transparent 45%
-    );
-}
-
-.contact-card h3{
-  font-family:Georgia,serif;
-  font-size:36px;
-  font-weight:400;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:70px;
+    background:#0b0b0c;
 }
 
 .contact-info{
-  margin-top:25px;
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:25px;
-  color:#aaa;
-  font-size:14px;
+    display:grid;
+    gap:20px;
 }
 
-.contact-info strong{
-  color:#c9a66b;
-  display:block;
-  margin-bottom:5px;
+.contact-item{
+    padding:25px;
+    border:1px solid var(--border);
+    background:#121213;
+}
+
+.contact-item small{
+    color:var(--gold);
+    display:block;
+    margin-bottom:8px;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    font-size:10px;
+}
+
+.contact-item a,
+.contact-item span{
+    color:#eee;
+    text-decoration:none;
+    font-size:17px;
+}
+
+.map{
+    min-height:430px;
+    border:1px solid var(--border);
+    background:
+        linear-gradient(rgba(15,15,16,.45),rgba(15,15,16,.45)),
+        url("https://images.unsplash.com/photo-1524666041070-9a8767493b68?auto=format&fit=crop&w=1200&q=85");
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.map-inner{
+    text-align:center;
+    padding:35px;
+    background:rgba(10,10,10,.82);
+    backdrop-filter:blur(10px);
+}
+
+.map-inner strong{
+    display:block;
+    font-size:22px;
+    margin-bottom:8px;
+}
+
+.map-inner span{
+    color:#aaa;
 }
 
 /* FOOTER */
 
 footer{
-  border-top:1px solid #202022;
-  padding:30px 0;
-  color:#666;
-  font-size:11px;
+    padding:45px 7%;
+    border-top:1px solid var(--border);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    color:#666;
+    font-size:12px;
 }
 
-.footer-inner{
-  display:flex;
-  justify-content:space-between;
-  gap:20px;
+.footer-logo{
+    color:#eee;
+    letter-spacing:4px;
+    font-weight:700;
+}
+
+.footer-logo span{
+    color:var(--gold);
+}
+
+.social{
+    display:flex;
+    gap:18px;
+}
+
+.social a{
+    color:#aaa;
+    text-decoration:none;
+}
+
+.social a:hover{
+    color:var(--gold);
 }
 
 /* MOBILE */
 
-@media(max-width:700px){
+@media(max-width:850px){
 
-  .nav-links{
-    display:none;
-  }
+    nav{
+        padding:0 5%;
+    }
 
-  .hero{
-    min-height:90vh;
-  }
+    .nav-links,
+    .nav-btn{
+        display:none;
+    }
 
-  .hero h1{
-    font-size:65px;
-    letter-spacing:-3px;
-  }
+    .menu{
+        display:block;
+    }
 
-  section{
-    padding:80px 0;
-  }
+    .hero{
+        padding:120px 6% 80px;
+        background:
+            linear-gradient(90deg,rgba(7,7,8,.88),rgba(7,7,8,.48)),
+            url("https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85");
+        background-position:center;
+    }
 
-  .service-grid{
-    grid-template-columns:1fr;
-  }
+    .hero h1{
+        font-size:60px;
+        letter-spacing:-3px;
+    }
 
-  .story-grid{
-    grid-template-columns:1fr;
-  }
+    .hero p{
+        font-size:15px;
+    }
 
-  .story-box{
-    height:330px;
-  }
+    section{
+        padding:80px 6%;
+    }
 
-  .gallery-grid{
-    grid-template-columns:1fr 1fr;
-    grid-template-rows:
-      200px 200px 200px;
-  }
+    .about,
+    .experience,
+    .contact{
+        grid-template-columns:1fr;
+        gap:40px;
+    }
 
-  .gallery-item:nth-child(1){
-    grid-row:span 1;
-    grid-column:span 2;
-  }
+    .about-image{
+        min-height:420px;
+    }
 
-  .contact-card{
-    padding:30px 18px;
-  }
+    .service-grid{
+        grid-template-columns:1fr;
+    }
 
-  .contact-card h3{
-    font-size:28px;
-  }
+    .gallery-head{
+        display:block;
+    }
 
-  .footer-inner{
-    flex-direction:column;
-  }
+    .gallery-head p{
+        margin-top:20px;
+    }
 
+    .gallery-grid{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        grid-template-rows:240px 240px 240px;
+    }
+
+    .g1{
+        grid-column:span 2;
+        grid-row:span 1;
+    }
+
+    .features{
+        grid-template-columns:1fr;
+    }
+
+    footer{
+        flex-direction:column;
+        gap:20px;
+        text-align:center;
+    }
+}
+
+@media(max-width:500px){
+
+    .hero h1{
+        font-size:50px;
+    }
+
+    .gallery-grid{
+        grid-template-columns:1fr;
+        grid-template-rows:260px 220px 220px 220px 220px;
+    }
+
+    .g1{
+        grid-column:auto;
+    }
+
+    .booking-card{
+        width:100%;
+    }
+}
+
+/* ANIMATION */
+
+.fade{
+    animation:fadeUp 1s ease forwards;
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
 </style>
 </head>
 
-
 <body>
-
 
 <!-- NAVIGATION -->
 
 <nav>
 
-<div class="nav-inner">
+    <div class="logo">
+        MY <span>STORY</span>
+    </div>
 
-<div class="logo">
-MY <span>STORY</span>
-</div>
+    <ul class="nav-links">
+        <li><a href="#about">O nama</a></li>
+        <li><a href="#services">Usluge</a></li>
+        <li><a href="#gallery">Galerija</a></li>
+        <li><a href="#contact">Kontakt</a></li>
+    </ul>
 
-<div class="nav-links">
+    <a class="nav-btn" href="tel:+385957422376">
+        Naruči termin
+    </a>
 
-<a href="#usluge">
-Usluge
-</a>
-
-<a href="#salon">
-O nama
-</a>
-
-<a href="#galerija">
-Galerija
-</a>
-
-<a href="#kontakt">
-Kontakt
-</a>
-
-<a
-href="tel:+385957422376"
-class="nav-button">
-
-Rezerviraj termin
-
-</a>
-
-</div>
-
-</div>
+    <div class="menu">☰</div>
 
 </nav>
 
@@ -532,377 +707,369 @@ Rezerviraj termin
 
 <header class="hero">
 
-<div class="container">
+    <div class="hero-content fade">
 
-<div class="hero-content">
+        <div class="eyebrow">
+            Frizerski salon · Daruvar
+        </div>
 
-<div class="eyebrow">
-FRIZERSKI SALON · DARUVAR
-</div>
+        <h1>
+            Your hair.<br>
+            Your <span>story.</span>
+        </h1>
 
-<h1>
-Your hair.<br>
-Your <span>story.</span>
-</h1>
+        <p>
+            Mjesto gdje stil postaje dio tvoje priče.
+            Profesionalna njega kose, moderan izgled
+            i pažnja posvećena svakom detalju.
+        </p>
 
-<p>
+        <div class="hero-buttons">
 
-Mjesto gdje stil postaje osoban.
-Otkrijte moderan pristup njezi kose
-i iskustvo prilagođeno vama.
+            <a href="tel:+385957422376" class="btn btn-primary">
+                Rezerviraj termin →
+            </a>
 
-</p>
+            <a href="#services" class="btn btn-outline">
+                Pogledaj usluge
+            </a>
 
-<div class="hero-buttons">
+        </div>
 
-<a
-href="tel:+385957422376"
-class="btn btn-primary">
+    </div>
 
-REZERVIRAJ TERMIN
-
-</a>
-
-<a
-href="#usluge"
-class="btn btn-secondary">
-
-POGLEDAJ USLUGE
-
-</a>
-
-</div>
-
-</div>
-
-</div>
+    <div class="hero-bottom">
+        DARUVAR · CROATIA · EST. 2021
+    </div>
 
 </header>
 
 
-<!-- SERVICES -->
+<!-- ABOUT -->
 
-<section
-id="usluge"
-class="services">
+<section class="about" id="about">
 
-<div class="container">
+    <div class="about-image"></div>
 
-<div class="section-label">
-OUR SERVICES
-</div>
+    <div class="about-text">
 
-<h2 class="section-title">
-Usluge
-</h2>
+        <div class="section-label">
+            My Story
+        </div>
 
-<p class="section-description">
+        <h2 class="section-title">
+            Više od<br>
+            <span>frizure.</span>
+        </h2>
 
-Sve što vam treba za savršen izgled,
-na jednom mjestu.
+        <p>
+            U My Story salonu vjerujemo da dobra frizura
+            nije samo izgled — ona je osjećaj.
+        </p>
 
-</p>
+        <p>
+            Zato svakom klijentu pristupamo individualno,
+            uz pažnju prema detaljima, kvaliteti i stilu
+            koji najbolje odgovara upravo vama.
+        </p>
 
+        <div class="signature">
+            My Story.
+        </div>
 
-<div class="service-grid">
-
-
-<div class="service">
-
-<div class="service-number">
-01
-</div>
-
-<h3>
-Šišanje
-</h3>
-
-<p>
-Profesionalno šišanje prilagođeno
-vašem stilu, obliku lica i željama.
-</p>
-
-</div>
-
-
-<div class="service">
-
-<div class="service-number">
-02
-</div>
-
-<h3>
-Bojanje
-</h3>
-
-<p>
-Individualan pristup boji i izgledu
-kose uz profesionalnu njegu.
-</p>
-
-</div>
-
-
-<div class="service">
-
-<div class="service-number">
-03
-</div>
-
-<h3>
-Styling
-</h3>
-
-<p>
-Frizure za svakodnevni izgled,
-posebne prilike i događaje.
-</p>
-
-</div>
-
-
-<div class="service">
-
-<div class="service-number">
-04
-</div>
-
-<h3>
-Njega kose
-</h3>
-
-<p>
-Tretmani i njega za zdraviji,
-sjajniji i njegovaniji izgled.
-</p>
-
-</div>
-
-
-<div class="service">
-
-<div class="service-number">
-05
-</div>
-
-<h3>
-Muško šišanje
-</h3>
-
-<p>
-Moderan izgled i precizno šišanje
-prilagođeno vašem stilu.
-</p>
-
-</div>
-
-
-<div class="service">
-
-<div class="service-number">
-06
-</div>
-
-<h3>
-Posebne prilike
-</h3>
-
-<p>
-Styling za događaje kada želite
-izgledati posebno.
-</p>
-
-</div>
-
-
-</div>
-
-</div>
+    </div>
 
 </section>
 
 
-<!-- STORY -->
+<!-- SERVICES -->
 
-<section id="salon">
+<section class="services" id="services">
 
-<div class="container">
+    <div class="services-head">
 
-<div class="story-grid">
+        <div class="section-label">
+            Naše usluge
+        </div>
 
+        <h2 class="section-title">
+            Pronađi svoj<br>
+            <span>stil.</span>
+        </h2>
 
-<div class="story-box">
-</div>
+        <p>
+            Od klasičnog šišanja do modernog stylinga —
+            cilj nam je da izađete iz salona zadovoljni
+            svojim izgledom.
+        </p>
 
-
-<div class="story-text">
-
-<div class="section-label">
-THE STORY
-</div>
-
-<h2 class="section-title">
-Vi imate priču.<br>
-Mi stvaramo stil.
-</h2>
-
-<p>
-
-U MY STORY salonu frizura nije samo
-frizura. To je dio vašeg osobnog stila.
-
-</p>
-
-<p>
-
-Naš cilj je da se nakon posjeta salonu
-ne osjećate samo bolje nego i sigurnije
-u sebe.
-
-</p>
-
-<div class="quote">
-
-"Your hair is your crown.
-Wear it your way."
-
-</div>
-
-</div>
+    </div>
 
 
-</div>
+    <div class="service-grid">
 
-</div>
+        <div class="service">
+            <div class="service-number">01</div>
+            <h3>Muško šišanje</h3>
+            <p>
+                Precizno šišanje, moderna forma i završni styling
+                prilagođen vašem stilu.
+            </p>
+        </div>
+
+        <div class="service">
+            <div class="service-number">02</div>
+            <h3>Žensko šišanje</h3>
+            <p>
+                Oblikovanje i šišanje prilagođeno vašem licu,
+                kosi i osobnom stilu.
+            </p>
+        </div>
+
+        <div class="service">
+            <div class="service-number">03</div>
+            <h3>Styling</h3>
+            <p>
+                Završni styling za svakodnevni izgled,
+                posebne prilike i događanja.
+            </p>
+        </div>
+
+        <div class="service">
+            <div class="service-number">04</div>
+            <h3>Bojanje</h3>
+            <p>
+                Promjena boje, osvježavanje tona i
+                personalizirani izgled kose.
+            </p>
+        </div>
+
+        <div class="service">
+            <div class="service-number">05</div>
+            <h3>Njega kose</h3>
+            <p>
+                Tretmani i njega za zdraviji, sjajniji
+                i kvalitetniji izgled kose.
+            </p>
+        </div>
+
+        <div class="service">
+            <div class="service-number">06</div>
+            <h3>Posebne prilike</h3>
+            <p>
+                Frizure za događaje, proslave i trenutke
+                koje želite posebno zapamtiti.
+            </p>
+        </div>
+
+    </div>
 
 </section>
 
 
 <!-- GALLERY -->
 
-<section
-id="galerija"
-class="gallery">
+<section class="gallery" id="gallery">
 
-<div class="container">
+    <div class="gallery-head">
 
-<div class="section-label">
-OUR WORK
-</div>
+        <div>
+            <div class="section-label">
+                Inspiracija
+            </div>
 
-<h2 class="section-title">
-Inspiracija
-</h2>
+            <h2 class="section-title">
+                Naš <span>svijet.</span>
+            </h2>
+        </div>
 
-<p class="section-description">
+        <p>
+            Moderan prostor, dobra energija i stil
+            koji počinje upravo u salonu.
+        </p>
 
-Ovdje bi išle stvarne fotografije
-radova salona.
-
-</p>
+    </div>
 
 
-<div class="gallery-grid">
+    <div class="gallery-grid">
 
-<div class="gallery-item"></div>
+        <div class="gallery-item g1"></div>
+        <div class="gallery-item g2"></div>
+        <div class="gallery-item g3"></div>
+        <div class="gallery-item g4"></div>
+        <div class="gallery-item g5"></div>
 
-<div class="gallery-item"></div>
+    </div>
 
-<div class="gallery-item"></div>
+</section>
 
-<div class="gallery-item"></div>
 
-<div class="gallery-item"></div>
+<!-- EXPERIENCE -->
 
-</div>
+<section class="experience">
 
-</div>
+    <div>
+
+        <div class="section-label">
+            Zašto My Story?
+        </div>
+
+        <h2 class="section-title">
+            Detalji koji<br>
+            čine <span>razliku.</span>
+        </h2>
+
+    </div>
+
+
+    <div class="experience-box">
+
+        <p>
+            Naš cilj nije samo napraviti dobru frizuru.
+            Želimo da se osjećate dobro od trenutka kada
+            uđete u salon pa sve do trenutka kada izađete.
+        </p>
+
+        <div class="features">
+
+            <div class="feature">
+                <strong>Individualan pristup</strong>
+                <span>Svaki klijent ima svoj stil.</span>
+            </div>
+
+            <div class="feature">
+                <strong>Moderan izgled</strong>
+                <span>Pratimo moderne trendove.</span>
+            </div>
+
+            <div class="feature">
+                <strong>Pažnja prema detaljima</strong>
+                <span>Male stvari čine veliku razliku.</span>
+            </div>
+
+            <div class="feature">
+                <strong>Profesionalna usluga</strong>
+                <span>Vaše zadovoljstvo je prioritet.</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- BOOKING -->
+
+<section class="booking">
+
+    <div class="booking-container">
+
+        <div class="section-label">
+            Rezerviraj svoj termin
+        </div>
+
+        <h2 class="section-title">
+            Vrijeme je za<br>
+            novu <span>priču.</span>
+        </h2>
+
+        <p>
+            Želiš novu frizuru ili samo osvježiti svoj stil?
+            Javi nam se i dogovori svoj termin.
+        </p>
+
+        <div class="booking-cards">
+
+            <div class="booking-card">
+                <small>Telefon</small>
+                <strong>095 742 2376</strong>
+            </div>
+
+            <div class="booking-card">
+                <small>Lokacija</small>
+                <strong>Daruvar</strong>
+            </div>
+
+            <a href="tel:+385957422376" class="btn btn-primary">
+                Nazovi salon →
+            </a>
+
+        </div>
+
+    </div>
 
 </section>
 
 
 <!-- CONTACT -->
 
-<section
-id="kontakt"
-class="contact">
+<section class="contact" id="contact">
 
-<div class="container">
+    <div>
 
-<div class="section-label">
-VISIT US
-</div>
+        <div class="section-label">
+            Kontakt
+        </div>
 
-<h2 class="section-title">
-Vaša nova frizura<br>
-počinje ovdje.
-</h2>
+        <h2 class="section-title">
+            Posjeti<br>
+            <span>My Story.</span>
+        </h2>
 
+        <div class="contact-info">
 
-<div class="contact-card">
+            <div class="contact-item">
+                <small>Adresa</small>
+                <span>
+                    Josipa Jelačića 8,<br>
+                    43500 Daruvar
+                </span>
+            </div>
 
-<h3>
-MY STORY
-</h3>
+            <div class="contact-item">
+                <small>Telefon</small>
+                <a href="tel:+385957422376">
+                    +385 95 742 2376
+                </a>
+            </div>
 
-<div class="contact-info">
+            <div class="contact-item">
+                <small>Radno vrijeme</small>
+                <span>
+                    Pon — Pet · 08:00 — 20:00<br>
+                    Sub · 08:00 — 15:00
+                </span>
+            </div>
 
+        </div>
 
-<div>
-
-<strong>
-ADRESA
-</strong>
-
-Josipa Jelačića 8<br>
-43500 Daruvar
-
-</div>
-
-
-<div>
-
-<strong>
-TELEFON
-</strong>
-
-<a
-href="tel:+385957422376">
-
-095 742 2376
-
-</a>
-
-</div>
+    </div>
 
 
-<div>
+    <div class="map">
 
-<strong>
-RADNO VRIJEME
-</strong>
+        <div class="map-inner">
 
-Pon – Pet<br>
-08:00 – 16:00 / 20:00
+            <strong>MY STORY</strong>
 
-</div>
+            <span>
+                Josipa Jelačića 8 · Daruvar
+            </span>
 
+            <br><br>
 
-</div>
+            <a
+                href="https://www.google.com/maps/search/?api=1&query=Josipa+Jelačića+8,+Daruvar"
+                target="_blank"
+                class="btn btn-primary"
+            >
+                Otvori lokaciju →
+            </a>
 
+        </div>
 
-<a
-href="tel:+385957422376"
-class="btn btn-primary"
-style="display:inline-block;margin-top:30px">
-
-REZERVIRAJ TERMIN
-
-</a>
-
-</div>
-
-</div>
+    </div>
 
 </section>
 
@@ -911,28 +1078,98 @@ REZERVIRAJ TERMIN
 
 <footer>
 
-<div class="container">
+    <div class="footer-logo">
+        MY <span>STORY</span>
+    </div>
 
-<div class="footer-inner">
+    <div>
+        © 2026 My Story · Daruvar
+    </div>
 
-<div>
-© 2026 MY STORY
-</div>
+    <div class="social">
 
-<div>
-Frizerski salon · Daruvar
-</div>
+        <a
+            href="https://www.facebook.com/MyStoryFrizerskiSalon/"
+            target="_blank"
+        >
+            Facebook
+        </a>
 
-<div>
-Designed as a demo by FOCUS Studio
-</div>
+        <a href="tel:+385957422376">
+            Kontakt
+        </a>
 
-</div>
-
-</div>
+    </div>
 
 </footer>
 
+
+<script>
+
+/* Smooth reveal */
+
+const elements = document.querySelectorAll(
+    ".service, .gallery-item, .feature, .contact-item"
+);
+
+const observer = new IntersectionObserver(
+    entries => {
+
+        entries.forEach(entry => {
+
+            if(entry.isIntersecting){
+
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+
+            }
+
+        });
+
+    },
+    {threshold:.12}
+);
+
+
+elements.forEach(el => {
+
+    el.style.opacity = "0";
+    el.style.transform = "translateY(25px)";
+    el.style.transition = "opacity .7s ease, transform .7s ease";
+
+    observer.observe(el);
+
+});
+
+
+/* Mobile menu */
+
+const menu = document.querySelector(".menu");
+const links = document.querySelector(".nav-links");
+
+menu.addEventListener("click", () => {
+
+    if(links.style.display === "flex"){
+
+        links.style.display = "none";
+
+    }else{
+
+        links.style.display = "flex";
+        links.style.position = "absolute";
+        links.style.top = "76px";
+        links.style.left = "0";
+        links.style.right = "0";
+        links.style.padding = "25px";
+        links.style.background = "#111";
+        links.style.flexDirection = "column";
+        links.style.gap = "20px";
+
+    }
+
+});
+
+</script>
 
 </body>
 </html>
