@@ -1,0 +1,10 @@
+{
+  "name": "Fokus — disciplina svaki dan",
+  "short_name": "Fokus",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#090612",
+  "theme_color": "#090612",
+  "lang": "hr",
+  "description": "Jednostavan sustav za disciplinu, zadatke, XP i streak."
+}
