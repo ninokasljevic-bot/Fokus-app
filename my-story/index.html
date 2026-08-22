@@ -3,12 +3,38 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b0b0c">
 
-<title>My Story — Frizerski salon Daruvar</title>
+<title>MY STORY — Frizerski salon Daruvar</title>
 
-<meta name="description" content="My Story — premium frizerski salon u Daruvaru. Stil, njega i frizura koja priča tvoju priču.">
+<meta name="description"
+content="MY STORY — premium frizerski salon u Daruvaru. Profesionalna njega kose, moderan izgled i pažnja posvećena svakom detalju.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
 
 <style>
+
+/* ================================
+   MY STORY — PREMIUM WEBSITE
+================================ */
+
+:root{
+    --bg:#0a0a0b;
+    --bg2:#111113;
+    --card:#151517;
+    --card2:#1b1b1e;
+    --gold:#d8b46a;
+    --gold2:#f1d18b;
+    --white:#f7f5f0;
+    --muted:#a9a6a0;
+    --line:rgba(255,255,255,.10);
+    --success:#72d29a;
+    --danger:#ff7676;
+}
+
 *{
     margin:0;
     padding:0;
@@ -20,134 +46,196 @@ html{
 }
 
 body{
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-    background:#0b0b0c;
-    color:#f5f2ed;
+    background:var(--bg);
+    color:var(--white);
+    font-family:"DM Sans",sans-serif;
     overflow-x:hidden;
 }
 
-:root{
-    --gold:#d7b77a;
-    --gold2:#f0d39a;
-    --cream:#f5f2ed;
-    --muted:#a6a19a;
-    --dark:#0b0b0c;
-    --card:#151516;
-    --border:rgba(255,255,255,.10);
+a{
+    color:inherit;
+    text-decoration:none;
 }
 
-/* NAVBAR */
+button,
+input,
+select,
+textarea{
+    font-family:inherit;
+}
 
-nav{
+button{
+    cursor:pointer;
+}
+
+/* ================================
+   HEADER
+================================ */
+
+header{
     position:fixed;
     top:0;
     left:0;
-    right:0;
-    height:76px;
+    width:100%;
     z-index:1000;
+    height:82px;
     display:flex;
     align-items:center;
     justify-content:space-between;
-    padding:0 7%;
-    background:rgba(11,11,12,.72);
-    backdrop-filter:blur(20px);
-    border-bottom:1px solid rgba(255,255,255,.06);
+    padding:0 6%;
+    background:rgba(10,10,11,.55);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid transparent;
+    transition:.35s ease;
+}
+
+header.scrolled{
+    background:rgba(10,10,11,.92);
+    border-bottom-color:var(--line);
 }
 
 .logo{
-    font-size:22px;
+    font-size:24px;
     font-weight:700;
-    letter-spacing:5px;
+    letter-spacing:6px;
 }
 
 .logo span{
     color:var(--gold);
 }
 
-.nav-links{
+.nav{
     display:flex;
+    align-items:center;
     gap:34px;
-    list-style:none;
 }
 
-.nav-links a{
+.nav a{
     color:#ddd;
-    text-decoration:none;
     font-size:14px;
-    transition:.3s;
+    transition:.25s;
 }
 
-.nav-links a:hover{
-    color:var(--gold);
+.nav a:hover{
+    color:var(--gold2);
 }
 
-.nav-btn{
+.nav-cta{
     padding:12px 20px;
-    border:1px solid var(--gold);
-    color:var(--gold);
-    text-decoration:none;
+    border:1px solid rgba(216,180,106,.55);
     border-radius:30px;
-    font-size:13px;
-    transition:.3s;
+    color:var(--gold2)!important;
 }
 
-.nav-btn:hover{
-    background:var(--gold);
-    color:#111;
-}
-
-.menu{
+.menu-btn{
     display:none;
-    font-size:27px;
+    width:44px;
+    height:44px;
+    border:1px solid var(--line);
+    background:rgba(255,255,255,.04);
+    border-radius:50%;
+    color:white;
+    font-size:21px;
 }
 
-/* HERO */
+/* ================================
+   MOBILE MENU
+================================ */
+
+.mobile-menu{
+    position:fixed;
+    inset:0;
+    z-index:999;
+    background:rgba(8,8,9,.98);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:30px;
+    opacity:0;
+    pointer-events:none;
+    transition:.35s;
+}
+
+.mobile-menu.active{
+    opacity:1;
+    pointer-events:auto;
+}
+
+.mobile-menu a{
+    font-size:26px;
+    font-weight:600;
+}
+
+.mobile-close{
+    position:absolute;
+    top:25px;
+    right:25px;
+    background:none;
+    border:0;
+    color:white;
+    font-size:35px;
+}
+
+/* ================================
+   HERO
+================================ */
 
 .hero{
     min-height:100vh;
     position:relative;
     display:flex;
-    align-items:center;
-    padding:120px 7% 70px;
+    align-items:flex-end;
+    overflow:hidden;
     background:
-        linear-gradient(90deg,rgba(7,7,8,.96) 0%,rgba(7,7,8,.78) 42%,rgba(7,7,8,.25) 100%),
-        url("https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=2000&q=90");
-    background-size:cover;
-    background-position:center;
+        linear-gradient(
+            90deg,
+            rgba(5,5,6,.93) 0%,
+            rgba(5,5,6,.70) 42%,
+            rgba(5,5,6,.35) 100%
+        ),
+        linear-gradient(
+            0deg,
+            rgba(5,5,6,.90),
+            transparent 65%
+        ),
+        url("https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=1800&q=90")
+        center/cover;
 }
 
 .hero-content{
-    max-width:720px;
+    width:min(760px,90%);
+    padding:0 0 110px 7%;
 }
 
 .eyebrow{
     color:var(--gold);
+    letter-spacing:7px;
+    font-size:13px;
     text-transform:uppercase;
-    letter-spacing:4px;
-    font-size:12px;
-    margin-bottom:22px;
+    margin-bottom:25px;
 }
 
 .hero h1{
-    font-size:clamp(55px,9vw,110px);
-    line-height:.92;
+    font-size:clamp(55px,8vw,105px);
+    line-height:.90;
     letter-spacing:-5px;
     margin-bottom:30px;
 }
 
 .hero h1 span{
-    color:var(--gold);
-    font-family:Georgia,serif;
+    font-family:"Playfair Display",serif;
     font-style:italic;
-    font-weight:400;
+    color:var(--gold2);
+    font-weight:500;
 }
 
 .hero p{
-    color:#c7c2bb;
-    max-width:570px;
-    line-height:1.8;
-    font-size:17px;
-    margin-bottom:40px;
+    color:#d5d2cc;
+    font-size:19px;
+    line-height:1.75;
+    max-width:620px;
+    margin-bottom:35px;
 }
 
 .hero-buttons{
@@ -157,44 +245,52 @@ nav{
 }
 
 .btn{
-    padding:16px 28px;
-    border-radius:40px;
-    text-decoration:none;
-    font-weight:600;
-    font-size:14px;
+    border:none;
+    padding:17px 28px;
+    border-radius:50px;
+    font-weight:700;
+    font-size:15px;
     transition:.3s;
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    gap:8px;
 }
 
 .btn-primary{
-    background:var(--gold);
-    color:#111;
+    background:linear-gradient(135deg,var(--gold2),var(--gold));
+    color:#17120a;
+    box-shadow:0 12px 35px rgba(216,180,106,.15);
 }
 
 .btn-primary:hover{
-    background:var(--gold2);
-    transform:translateY(-2px);
+    transform:translateY(-3px);
+    box-shadow:0 18px 45px rgba(216,180,106,.25);
 }
 
 .btn-outline{
-    border:1px solid rgba(255,255,255,.25);
     color:white;
+    border:1px solid rgba(255,255,255,.30);
+    background:rgba(255,255,255,.03);
 }
 
 .btn-outline:hover{
     border-color:var(--gold);
-    color:var(--gold);
+    color:var(--gold2);
 }
 
 .hero-bottom{
     position:absolute;
-    bottom:30px;
+    bottom:28px;
     left:7%;
     color:#777;
+    letter-spacing:5px;
     font-size:11px;
-    letter-spacing:2px;
 }
 
-/* GENERAL */
+/* ================================
+   GENERAL
+================================ */
 
 section{
     padding:110px 7%;
@@ -203,474 +299,664 @@ section{
 .section-label{
     color:var(--gold);
     text-transform:uppercase;
-    letter-spacing:3px;
-    font-size:11px;
-    margin-bottom:15px;
+    letter-spacing:5px;
+    font-size:12px;
+    margin-bottom:18px;
 }
 
 .section-title{
-    font-size:clamp(38px,5vw,65px);
+    font-size:clamp(40px,5vw,65px);
     line-height:1;
-    margin-bottom:25px;
+    letter-spacing:-2px;
+    margin-bottom:22px;
 }
 
 .section-title span{
     color:var(--gold);
-    font-family:Georgia,serif;
+    font-family:"Playfair Display",serif;
     font-style:italic;
-    font-weight:400;
+    font-weight:500;
 }
 
-/* ABOUT */
+.section-description{
+    color:var(--muted);
+    line-height:1.8;
+    max-width:650px;
+}
+
+/* ================================
+   ABOUT
+================================ */
 
 .about{
+    background:var(--bg2);
+}
+
+.about-grid{
     display:grid;
     grid-template-columns:1fr 1fr;
     gap:80px;
     align-items:center;
-    background:#101011;
 }
 
 .about-image{
-    min-height:580px;
-    border-radius:4px;
+    height:580px;
+    border-radius:5px;
     background:
-        linear-gradient(to top,rgba(0,0,0,.3),transparent),
-        url("https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=1200&q=85");
-    background-size:cover;
-    background-position:center;
+        linear-gradient(180deg,transparent,rgba(0,0,0,.5)),
+        url("https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1000&q=85")
+        center/cover;
 }
 
-.about-text p{
-    color:var(--muted);
-    line-height:1.9;
-    font-size:16px;
-    margin-bottom:22px;
-}
-
-.signature{
-    margin-top:30px;
-    color:var(--gold);
-    font-family:Georgia,serif;
-    font-style:italic;
-    font-size:27px;
-}
-
-/* SERVICES */
-
-.services{
-    background:#0b0b0c;
-}
-
-.services-head{
-    max-width:650px;
-    margin-bottom:55px;
-}
-
-.services-head p{
-    color:var(--muted);
-    line-height:1.8;
-}
-
-.service-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:18px;
-}
-
-.service{
-    padding:35px;
-    min-height:230px;
-    background:linear-gradient(145deg,#181819,#101011);
-    border:1px solid var(--border);
-    transition:.4s;
-}
-
-.service:hover{
-    transform:translateY(-8px);
-    border-color:rgba(215,183,122,.45);
-}
-
-.service-number{
-    color:var(--gold);
-    font-size:12px;
-    letter-spacing:2px;
-    margin-bottom:30px;
-}
-
-.service h3{
-    font-size:23px;
-    margin-bottom:14px;
-}
-
-.service p{
-    color:#898681;
-    line-height:1.7;
-    font-size:14px;
-}
-
-/* GALLERY */
-
-.gallery{
-    background:#101011;
-}
-
-.gallery-head{
-    display:flex;
-    justify-content:space-between;
-    align-items:end;
-    margin-bottom:45px;
-}
-
-.gallery-head p{
-    max-width:400px;
-    color:var(--muted);
-    line-height:1.7;
-}
-
-.gallery-grid{
-    display:grid;
-    grid-template-columns:1.4fr 1fr 1fr;
-    grid-template-rows:270px 270px;
-    gap:12px;
-}
-
-.gallery-item{
-    background-size:cover;
-    background-position:center;
-    transition:.5s;
-    overflow:hidden;
-}
-
-.gallery-item:hover{
-    transform:scale(.985);
-}
-
-.g1{
-    grid-row:span 2;
-    background-image:url("https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1200&q=85");
-}
-
-.g2{
-    background-image:url("https://images.unsplash.com/photo-1600948836101-f9ffda59d250?auto=format&fit=crop&w=900&q=85");
-}
-
-.g3{
-    background-image:url("https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=900&q=85");
-}
-
-.g4{
-    background-image:url("https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=900&q=85");
-}
-
-.g5{
-    background-image:url("https://images.unsplash.com/photo-1560869713-da86a9ec76d2?auto=format&fit=crop&w=900&q=85");
-}
-
-/* EXPERIENCE */
-
-.experience{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:70px;
-    align-items:center;
-}
-
-.experience-box{
-    border-left:1px solid var(--gold);
-    padding-left:35px;
-}
-
-.experience-box p{
-    color:var(--muted);
+.about-copy p{
+    color:#b8b5af;
+    font-size:17px;
     line-height:1.9;
     margin-bottom:25px;
 }
 
 .features{
     display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:25px;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+    margin-top:30px;
 }
 
 .feature{
-    padding:25px 0;
-    border-top:1px solid var(--border);
+    border:1px solid var(--line);
+    background:rgba(255,255,255,.025);
+    padding:20px;
 }
 
 .feature strong{
     display:block;
-    margin-bottom:8px;
+    margin-bottom:5px;
 }
 
-.feature span{
-    color:#85827e;
-    font-size:13px;
+.feature small{
+    color:var(--muted);
 }
 
-/* BOOKING */
+/* ================================
+   SERVICES
+================================ */
+
+.services{
+    background:var(--bg);
+}
+
+.services-head{
+    display:flex;
+    justify-content:space-between;
+    gap:40px;
+    align-items:end;
+    margin-bottom:55px;
+}
+
+.services-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:16px;
+}
+
+.service{
+    position:relative;
+    min-height:270px;
+    border:1px solid var(--line);
+    background:linear-gradient(145deg,#171719,#101011);
+    padding:32px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    transition:.35s;
+    overflow:hidden;
+}
+
+.service:before{
+    content:"";
+    position:absolute;
+    width:150px;
+    height:150px;
+    background:rgba(216,180,106,.07);
+    border-radius:50%;
+    right:-70px;
+    top:-70px;
+    transition:.4s;
+}
+
+.service:hover{
+    transform:translateY(-6px);
+    border-color:rgba(216,180,106,.35);
+}
+
+.service:hover:before{
+    transform:scale(2);
+}
+
+.service-number{
+    color:#666;
+    font-size:12px;
+    letter-spacing:2px;
+}
+
+.service h3{
+    font-size:24px;
+    margin-top:auto;
+    margin-bottom:10px;
+}
+
+.service p{
+    color:var(--muted);
+    line-height:1.6;
+    font-size:14px;
+}
+
+/* ================================
+   BOOKING
+================================ */
 
 .booking{
     background:
-        linear-gradient(90deg,rgba(10,10,11,.96),rgba(10,10,11,.82)),
-        url("https://images.unsplash.com/photo-1527799820374-dcf8e7f3f16a?auto=format&fit=crop&w=2000&q=85");
-    background-size:cover;
-    background-position:center;
+        radial-gradient(circle at 90% 20%,rgba(216,180,106,.10),transparent 35%),
+        var(--bg2);
 }
 
 .booking-container{
     max-width:900px;
-}
-
-.booking-container p{
-    color:#aaa;
-    max-width:600px;
-    line-height:1.8;
-    margin-bottom:35px;
-}
-
-.booking-cards{
-    display:flex;
-    flex-wrap:wrap;
-    gap:15px;
+    margin:auto;
 }
 
 .booking-card{
-    background:rgba(255,255,255,.05);
-    border:1px solid rgba(255,255,255,.12);
-    padding:22px 25px;
-    min-width:210px;
+    margin-top:45px;
+    padding:45px;
+    background:rgba(255,255,255,.035);
+    border:1px solid var(--line);
+    border-radius:8px;
 }
 
-.booking-card small{
-    color:#888;
-    display:block;
-    margin-bottom:7px;
+.booking-note{
+    display:flex;
+    gap:12px;
+    padding:15px 17px;
+    background:rgba(216,180,106,.07);
+    border:1px solid rgba(216,180,106,.18);
+    color:#d7c8a7;
+    margin-bottom:30px;
+    font-size:13px;
+    line-height:1.6;
 }
 
-.booking-card strong{
-    color:white;
-}
-
-/* CONTACT */
-
-.contact{
+.form-grid{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:70px;
-    background:#0b0b0c;
+    gap:18px;
 }
 
-.contact-info{
+.form-group{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+.form-group.full{
+    grid-column:1/-1;
+}
+
+.form-group label{
+    font-size:13px;
+    color:#bdbab4;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+    width:100%;
+    padding:15px 16px;
+    background:#0d0d0f;
+    color:white;
+    border:1px solid var(--line);
+    outline:none;
+    border-radius:5px;
+    transition:.25s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+    border-color:var(--gold);
+}
+
+.form-group textarea{
+    min-height:110px;
+    resize:vertical;
+}
+
+.booking-actions{
+    display:flex;
+    gap:12px;
+    margin-top:25px;
+    flex-wrap:wrap;
+}
+
+.booking-actions .btn{
+    flex:1;
+    min-width:200px;
+}
+
+/* ================================
+   CALL SECTION
+================================ */
+
+.call-section{
+    padding:70px 7%;
+    background:linear-gradient(135deg,#191611,#0d0d0e);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+}
+
+.call-inner{
+    max-width:1100px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:30px;
+}
+
+.call-inner h2{
+    font-size:35px;
+    margin-bottom:10px;
+}
+
+.call-inner p{
+    color:var(--muted);
+}
+
+/* ================================
+   LOCATION
+================================ */
+
+.location{
+    background:var(--bg);
+}
+
+.location-grid{
     display:grid;
-    gap:20px;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
 }
 
-.contact-item{
-    padding:25px;
-    border:1px solid var(--border);
-    background:#121213;
+.location-card{
+    padding:35px;
+    border:1px solid var(--line);
+    background:var(--card);
 }
 
-.contact-item small{
+.location-item{
+    display:flex;
+    gap:15px;
+    margin-bottom:28px;
+}
+
+.location-icon{
+    width:45px;
+    height:45px;
+    border:1px solid rgba(216,180,106,.3);
+    display:grid;
+    place-items:center;
     color:var(--gold);
-    display:block;
-    margin-bottom:8px;
-    text-transform:uppercase;
-    letter-spacing:2px;
-    font-size:10px;
+    flex-shrink:0;
 }
 
-.contact-item a,
-.contact-item span{
-    color:#eee;
-    text-decoration:none;
-    font-size:17px;
+.location-item strong{
+    display:block;
+    margin-bottom:5px;
+}
+
+.location-item span{
+    color:var(--muted);
+    line-height:1.6;
 }
 
 .map{
     min-height:430px;
-    border:1px solid var(--border);
     background:
-        linear-gradient(rgba(15,15,16,.45),rgba(15,15,16,.45)),
-        url("https://images.unsplash.com/photo-1524666041070-9a8767493b68?auto=format&fit=crop&w=1200&q=85");
-    background-size:cover;
-    background-position:center;
+        linear-gradient(rgba(0,0,0,.15),rgba(0,0,0,.45)),
+        url("https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=1000&q=80")
+        center/cover;
     display:flex;
     align-items:center;
     justify-content:center;
 }
 
-.map-inner{
-    text-align:center;
-    padding:35px;
-    background:rgba(10,10,10,.82);
-    backdrop-filter:blur(10px);
+/* ================================
+   FAQ
+================================ */
+
+.faq{
+    background:var(--bg2);
 }
 
-.map-inner strong{
-    display:block;
-    font-size:22px;
-    margin-bottom:8px;
+.faq-container{
+    max-width:900px;
+    margin:auto;
 }
 
-.map-inner span{
-    color:#aaa;
+.faq-item{
+    border-bottom:1px solid var(--line);
 }
 
-/* FOOTER */
-
-footer{
-    padding:45px 7%;
-    border-top:1px solid var(--border);
+.faq-question{
+    width:100%;
+    padding:24px 0;
+    background:none;
+    border:none;
+    color:white;
     display:flex;
     justify-content:space-between;
-    align-items:center;
-    color:#666;
+    text-align:left;
+    font-size:17px;
+    font-weight:600;
+}
+
+.faq-answer{
+    max-height:0;
+    overflow:hidden;
+    color:var(--muted);
+    line-height:1.8;
+    transition:.35s ease;
+}
+
+.faq-item.active .faq-answer{
+    max-height:180px;
+    padding-bottom:22px;
+}
+
+.faq-plus{
+    color:var(--gold);
+    font-size:25px;
+}
+
+/* ================================
+   FOOTER
+================================ */
+
+footer{
+    padding:70px 7% 35px;
+    background:#070708;
+}
+
+.footer-top{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+    gap:50px;
+    padding-bottom:50px;
+    border-bottom:1px solid var(--line);
+}
+
+.footer-brand p{
+    color:#777;
+    max-width:400px;
+    line-height:1.7;
+    margin-top:20px;
+}
+
+.footer-title{
+    color:white;
+    font-weight:700;
+    margin-bottom:18px;
+}
+
+.footer-links{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.footer-links a{
+    color:#858585;
+    font-size:14px;
+}
+
+.footer-links a:hover{
+    color:var(--gold);
+}
+
+.footer-bottom{
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+    padding-top:25px;
+    color:#555;
     font-size:12px;
 }
 
-.footer-logo{
-    color:#eee;
-    letter-spacing:4px;
-    font-weight:700;
-}
-
-.footer-logo span{
+.gold{
     color:var(--gold);
 }
 
-.social{
+/* ================================
+   MODAL
+================================ */
+
+.modal{
+    position:fixed;
+    inset:0;
+    z-index:2000;
+    background:rgba(0,0,0,.78);
+    backdrop-filter:blur(10px);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.modal.active{
     display:flex;
-    gap:18px;
 }
 
-.social a{
-    color:#aaa;
-    text-decoration:none;
+.modal-card{
+    width:min(520px,100%);
+    background:#151517;
+    border:1px solid var(--line);
+    padding:40px;
+    text-align:center;
+    border-radius:10px;
+    box-shadow:0 30px 100px rgba(0,0,0,.5);
 }
 
-.social a:hover{
-    color:var(--gold);
+.modal-icon{
+    width:70px;
+    height:70px;
+    margin:0 auto 22px;
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    background:rgba(114,210,154,.10);
+    color:var(--success);
+    font-size:30px;
 }
 
-/* MOBILE */
+.modal-card h2{
+    font-size:30px;
+    margin-bottom:12px;
+}
 
-@media(max-width:850px){
+.modal-card p{
+    color:var(--muted);
+    line-height:1.7;
+    margin-bottom:25px;
+}
 
-    nav{
-        padding:0 5%;
-    }
+.close-modal{
+    width:100%;
+}
 
-    .nav-links,
-    .nav-btn{
+/* ================================
+   TOAST
+================================ */
+
+.toast{
+    position:fixed;
+    bottom:25px;
+    left:50%;
+    transform:translate(-50%,100px);
+    background:#18181b;
+    border:1px solid var(--line);
+    padding:15px 20px;
+    border-radius:50px;
+    z-index:3000;
+    opacity:0;
+    transition:.35s;
+    font-size:14px;
+}
+
+.toast.show{
+    transform:translate(-50%,0);
+    opacity:1;
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media(max-width:900px){
+
+    .nav{
         display:none;
     }
 
-    .menu{
+    .menu-btn{
         display:block;
     }
 
-    .hero{
-        padding:120px 6% 80px;
-        background:
-            linear-gradient(90deg,rgba(7,7,8,.88),rgba(7,7,8,.48)),
-            url("https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85");
-        background-position:center;
+    .hero-content{
+        padding-left:6%;
+        padding-bottom:90px;
     }
 
     .hero h1{
-        font-size:60px;
+        font-size:62px;
+    }
+
+    .about-grid,
+    .location-grid{
+        grid-template-columns:1fr;
+    }
+
+    .services-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .about-image{
+        height:450px;
+    }
+
+    .footer-top{
+        grid-template-columns:1fr 1fr;
+    }
+
+}
+
+@media(max-width:600px){
+
+    header{
+        height:70px;
+        padding:0 5%;
+    }
+
+    .logo{
+        font-size:20px;
+        letter-spacing:4px;
+    }
+
+    section{
+        padding:80px 5%;
+    }
+
+    .hero{
+        min-height:850px;
+        background-position:60% center;
+    }
+
+    .hero-content{
+        width:92%;
+        padding-left:5%;
+        padding-bottom:80px;
+    }
+
+    .eyebrow{
+        font-size:10px;
+        letter-spacing:4px;
+    }
+
+    .hero h1{
+        font-size:54px;
         letter-spacing:-3px;
     }
 
     .hero p{
-        font-size:15px;
+        font-size:16px;
+        line-height:1.65;
     }
 
-    section{
-        padding:80px 6%;
+    .hero-bottom{
+        left:5%;
+        font-size:9px;
     }
 
-    .about,
-    .experience,
-    .contact{
-        grid-template-columns:1fr;
-        gap:40px;
+    .hero-buttons{
+        flex-direction:column;
+        align-items:stretch;
     }
 
-    .about-image{
-        min-height:420px;
+    .btn{
+        width:100%;
     }
 
-    .service-grid{
-        grid-template-columns:1fr;
-    }
-
-    .gallery-head{
+    .services-head{
         display:block;
     }
 
-    .gallery-head p{
-        margin-top:20px;
-    }
-
-    .gallery-grid{
-        display:grid;
-        grid-template-columns:1fr 1fr;
-        grid-template-rows:240px 240px 240px;
-    }
-
-    .g1{
-        grid-column:span 2;
-        grid-row:span 1;
+    .services-grid{
+        grid-template-columns:1fr;
     }
 
     .features{
         grid-template-columns:1fr;
     }
 
-    footer{
-        flex-direction:column;
-        gap:20px;
-        text-align:center;
-    }
-}
-
-@media(max-width:500px){
-
-    .hero h1{
-        font-size:50px;
+    .booking-card{
+        padding:22px;
     }
 
-    .gallery-grid{
+    .form-grid{
         grid-template-columns:1fr;
-        grid-template-rows:260px 220px 220px 220px 220px;
     }
 
-    .g1{
+    .form-group.full{
         grid-column:auto;
     }
 
-    .booking-card{
+    .call-inner{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .call-inner .btn{
         width:100%;
     }
-}
 
-/* ANIMATION */
-
-.fade{
-    animation:fadeUp 1s ease forwards;
-}
-
-@keyframes fadeUp{
-    from{
-        opacity:0;
-        transform:translateY(25px);
+    .footer-top{
+        grid-template-columns:1fr;
     }
-    to{
-        opacity:1;
-        transform:translateY(0);
+
+    .footer-bottom{
+        flex-direction:column;
+    }
+
+    .modal-card{
+        padding:28px 20px;
     }
 }
 
@@ -679,35 +965,61 @@ footer{
 
 <body>
 
-<!-- NAVIGATION -->
+<!-- ================================
+     HEADER
+================================ -->
 
-<nav>
+<header id="header">
 
-    <div class="logo">
+    <a href="#home" class="logo">
         MY <span>STORY</span>
-    </div>
-
-    <ul class="nav-links">
-        <li><a href="#about">O nama</a></li>
-        <li><a href="#services">Usluge</a></li>
-        <li><a href="#gallery">Galerija</a></li>
-        <li><a href="#contact">Kontakt</a></li>
-    </ul>
-
-    <a class="nav-btn" href="tel:+385957422376">
-        Naruči termin
     </a>
 
-    <div class="menu">☰</div>
+    <nav class="nav">
+        <a href="#about">O nama</a>
+        <a href="#services">Usluge</a>
+        <a href="#booking">Rezervacija</a>
+        <a href="#location">Kontakt</a>
 
-</nav>
+        <a href="tel:+385957422376" class="nav-cta">
+            Nazovi salon
+        </a>
+    </nav>
+
+    <button class="menu-btn" id="menuBtn">
+        ☰
+    </button>
+
+</header>
 
 
-<!-- HERO -->
+<!-- MOBILE MENU -->
 
-<header class="hero">
+<div class="mobile-menu" id="mobileMenu">
 
-    <div class="hero-content fade">
+    <button class="mobile-close" id="mobileClose">
+        ×
+    </button>
+
+    <a href="#about">O nama</a>
+    <a href="#services">Usluge</a>
+    <a href="#booking">Rezervacija</a>
+    <a href="#location">Kontakt</a>
+
+    <a href="tel:+385957422376" class="btn btn-primary">
+        📞 Nazovi salon
+    </a>
+
+</div>
+
+
+<!-- ================================
+     HERO
+================================ -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
 
         <div class="eyebrow">
             Frizerski salon · Daruvar
@@ -726,7 +1038,7 @@ footer{
 
         <div class="hero-buttons">
 
-            <a href="tel:+385957422376" class="btn btn-primary">
+            <a href="#booking" class="btn btn-primary">
                 Rezerviraj termin →
             </a>
 
@@ -739,42 +1051,77 @@ footer{
     </div>
 
     <div class="hero-bottom">
-        DARUVAR · CROATIA · EST. 2021
+        DARUVAR · CROATIA · MY STORY
     </div>
 
-</header>
+</section>
 
 
-<!-- ABOUT -->
+<!-- ================================
+     ABOUT
+================================ -->
 
 <section class="about" id="about">
 
-    <div class="about-image"></div>
+    <div class="about-grid">
 
-    <div class="about-text">
+        <div class="about-image"></div>
 
-        <div class="section-label">
-            My Story
-        </div>
+        <div class="about-copy">
 
-        <h2 class="section-title">
-            Više od<br>
-            <span>frizure.</span>
-        </h2>
+            <div class="section-label">
+                O nama
+            </div>
 
-        <p>
-            U My Story salonu vjerujemo da dobra frizura
-            nije samo izgled — ona je osjećaj.
-        </p>
+            <h2 class="section-title">
+                Više od frizure.<br>
+                To je tvoja <span>priča.</span>
+            </h2>
 
-        <p>
-            Zato svakom klijentu pristupamo individualno,
-            uz pažnju prema detaljima, kvaliteti i stilu
-            koji najbolje odgovara upravo vama.
-        </p>
+            <p>
+                U MY STORY salonu vjerujemo da dobra frizura
+                nije samo izgled. Ona je osjećaj samopouzdanja,
+                osobnosti i trenutka u kojem se osjećaš najbolje.
+            </p>
 
-        <div class="signature">
-            My Story.
+            <p>
+                Naš cilj je svakom klijentu pružiti profesionalnu
+                uslugu, ugodnu atmosferu i rezultat koji će
+                odgovarati njegovom stilu.
+            </p>
+
+            <div class="features">
+
+                <div class="feature">
+                    <strong>✦ Profesionalno</strong>
+                    <small>
+                        Pažnja posvećena svakom detalju.
+                    </small>
+                </div>
+
+                <div class="feature">
+                    <strong>✦ Individualno</strong>
+                    <small>
+                        Stil prilagođen upravo tebi.
+                    </small>
+                </div>
+
+                <div class="feature">
+                    <strong>✦ Moderna njega</strong>
+                    <small>
+                        Fokus na kvalitetu i izgledu.
+                    </small>
+                </div>
+
+                <div class="feature">
+                    <strong>✦ Daruvar</strong>
+                    <small>
+                        Tvoje lokalno mjesto za stil.
+                    </small>
+                </div>
+
+            </div>
+
         </div>
 
     </div>
@@ -782,218 +1129,382 @@ footer{
 </section>
 
 
-<!-- SERVICES -->
+<!-- ================================
+     SERVICES
+================================ -->
 
 <section class="services" id="services">
 
     <div class="services-head">
 
-        <div class="section-label">
-            Naše usluge
-        </div>
-
-        <h2 class="section-title">
-            Pronađi svoj<br>
-            <span>stil.</span>
-        </h2>
-
-        <p>
-            Od klasičnog šišanja do modernog stylinga —
-            cilj nam je da izađete iz salona zadovoljni
-            svojim izgledom.
-        </p>
-
-    </div>
-
-
-    <div class="service-grid">
-
-        <div class="service">
-            <div class="service-number">01</div>
-            <h3>Muško šišanje</h3>
-            <p>
-                Precizno šišanje, moderna forma i završni styling
-                prilagođen vašem stilu.
-            </p>
-        </div>
-
-        <div class="service">
-            <div class="service-number">02</div>
-            <h3>Žensko šišanje</h3>
-            <p>
-                Oblikovanje i šišanje prilagođeno vašem licu,
-                kosi i osobnom stilu.
-            </p>
-        </div>
-
-        <div class="service">
-            <div class="service-number">03</div>
-            <h3>Styling</h3>
-            <p>
-                Završni styling za svakodnevni izgled,
-                posebne prilike i događanja.
-            </p>
-        </div>
-
-        <div class="service">
-            <div class="service-number">04</div>
-            <h3>Bojanje</h3>
-            <p>
-                Promjena boje, osvježavanje tona i
-                personalizirani izgled kose.
-            </p>
-        </div>
-
-        <div class="service">
-            <div class="service-number">05</div>
-            <h3>Njega kose</h3>
-            <p>
-                Tretmani i njega za zdraviji, sjajniji
-                i kvalitetniji izgled kose.
-            </p>
-        </div>
-
-        <div class="service">
-            <div class="service-number">06</div>
-            <h3>Posebne prilike</h3>
-            <p>
-                Frizure za događaje, proslave i trenutke
-                koje želite posebno zapamtiti.
-            </p>
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- GALLERY -->
-
-<section class="gallery" id="gallery">
-
-    <div class="gallery-head">
-
         <div>
+
             <div class="section-label">
-                Inspiracija
+                Naše usluge
             </div>
 
             <h2 class="section-title">
-                Naš <span>svijet.</span>
+                Tvoj stil.<br>
+                Naš <span>potpis.</span>
             </h2>
+
         </div>
 
-        <p>
-            Moderan prostor, dobra energija i stil
-            koji počinje upravo u salonu.
+        <p class="section-description">
+            Od klasičnog šišanja do kompletnog stylinga —
+            odaberi uslugu koja ti odgovara.
         </p>
 
     </div>
 
 
-    <div class="gallery-grid">
+    <div class="services-grid">
 
-        <div class="gallery-item g1"></div>
-        <div class="gallery-item g2"></div>
-        <div class="gallery-item g3"></div>
-        <div class="gallery-item g4"></div>
-        <div class="gallery-item g5"></div>
+        <div class="service">
+
+            <div class="service-number">
+                01 / HAIR
+            </div>
+
+            <div>
+                <h3>Šišanje</h3>
+
+                <p>
+                    Precizno šišanje prilagođeno tvom obliku
+                    lica, stilu i željenom izgledu.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="service">
+
+            <div class="service-number">
+                02 / STYLE
+            </div>
+
+            <div>
+                <h3>Feniranje</h3>
+
+                <p>
+                    Uređen i profesionalan izgled za svaki dan
+                    ili posebnu priliku.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="service">
+
+            <div class="service-number">
+                03 / COLOR
+            </div>
+
+            <div>
+                <h3>Bojanje</h3>
+
+                <p>
+                    Promjena boje i osvježavanje izgleda
+                    prema dogovoru sa stilistom.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="service">
+
+            <div class="service-number">
+                04 / CARE
+            </div>
+
+            <div>
+                <h3>Njega kose</h3>
+
+                <p>
+                    Tretmani i profesionalna njega za zdraviji
+                    i kvalitetniji izgled kose.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="service">
+
+            <div class="service-number">
+                05 / MEN
+            </div>
+
+            <div>
+                <h3>Muško šišanje</h3>
+
+                <p>
+                    Moderna i klasična muška šišanja
+                    prilagođena osobnom stilu.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="service">
+
+            <div class="service-number">
+                06 / SPECIAL
+            </div>
+
+            <div>
+                <h3>Styling</h3>
+
+                <p>
+                    Poseban styling za događaje, proslave
+                    i trenutke koji se pamte.
+                </p>
+            </div>
+
+        </div>
 
     </div>
 
 </section>
 
 
-<!-- EXPERIENCE -->
+<!-- ================================
+     BOOKING
+================================ -->
 
-<section class="experience">
-
-    <div>
-
-        <div class="section-label">
-            Zašto My Story?
-        </div>
-
-        <h2 class="section-title">
-            Detalji koji<br>
-            čine <span>razliku.</span>
-        </h2>
-
-    </div>
-
-
-    <div class="experience-box">
-
-        <p>
-            Naš cilj nije samo napraviti dobru frizuru.
-            Želimo da se osjećate dobro od trenutka kada
-            uđete u salon pa sve do trenutka kada izađete.
-        </p>
-
-        <div class="features">
-
-            <div class="feature">
-                <strong>Individualan pristup</strong>
-                <span>Svaki klijent ima svoj stil.</span>
-            </div>
-
-            <div class="feature">
-                <strong>Moderan izgled</strong>
-                <span>Pratimo moderne trendove.</span>
-            </div>
-
-            <div class="feature">
-                <strong>Pažnja prema detaljima</strong>
-                <span>Male stvari čine veliku razliku.</span>
-            </div>
-
-            <div class="feature">
-                <strong>Profesionalna usluga</strong>
-                <span>Vaše zadovoljstvo je prioritet.</span>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- BOOKING -->
-
-<section class="booking">
+<section class="booking" id="booking">
 
     <div class="booking-container">
 
         <div class="section-label">
-            Rezerviraj svoj termin
+            Rezervacija
         </div>
 
         <h2 class="section-title">
-            Vrijeme je za<br>
-            novu <span>priču.</span>
+            Zatraži svoj <span>termin.</span>
         </h2>
 
-        <p>
-            Želiš novu frizuru ili samo osvježiti svoj stil?
-            Javi nam se i dogovori svoj termin.
+        <p class="section-description">
+            Odaberi uslugu, datum i vrijeme koje ti odgovara.
+            Salon će pregledati zahtjev i potvrditi termin.
         </p>
 
-        <div class="booking-cards">
 
-            <div class="booking-card">
-                <small>Telefon</small>
-                <strong>095 742 2376</strong>
+        <div class="booking-card">
+
+            <div class="booking-note">
+                <span>ⓘ</span>
+
+                <span>
+                    Ovo je zahtjev za termin. Termin nije rezerviran
+                    dok ga salon ne potvrdi. Ako ti je termin hitan,
+                    preporučujemo da nazoveš salon.
+                </span>
             </div>
 
-            <div class="booking-card">
-                <small>Lokacija</small>
-                <strong>Daruvar</strong>
-            </div>
 
-            <a href="tel:+385957422376" class="btn btn-primary">
-                Nazovi salon →
-            </a>
+            <form id="bookingForm">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label for="name">
+                            Ime i prezime
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            placeholder="npr. Ivan Horvat"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="phone">
+                            Broj telefona
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            placeholder="npr. 091 123 4567"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="service">
+                            Usluga
+                        </label>
+
+                        <select id="service" required>
+
+                            <option value="">
+                                Odaberi uslugu
+                            </option>
+
+                            <option>
+                                Šišanje
+                            </option>
+
+                            <option>
+                                Feniranje
+                            </option>
+
+                            <option>
+                                Bojanje
+                            </option>
+
+                            <option>
+                                Njega kose
+                            </option>
+
+                            <option>
+                                Muško šišanje
+                            </option>
+
+                            <option>
+                                Styling
+                            </option>
+
+                            <option>
+                                Ostalo
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="date">
+                            Željeni datum
+                        </label>
+
+                        <input
+                            type="date"
+                            id="date"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="time">
+                            Željeno vrijeme
+                        </label>
+
+                        <select id="time" required>
+
+                            <option value="">
+                                Odaberi vrijeme
+                            </option>
+
+                            <option>08:00</option>
+                            <option>08:30</option>
+                            <option>09:00</option>
+                            <option>09:30</option>
+                            <option>10:00</option>
+                            <option>10:30</option>
+                            <option>11:00</option>
+                            <option>11:30</option>
+                            <option>12:00</option>
+                            <option>12:30</option>
+                            <option>13:00</option>
+                            <option>13:30</option>
+                            <option>14:00</option>
+                            <option>14:30</option>
+                            <option>15:00</option>
+                            <option>15:30</option>
+                            <option>16:00</option>
+                            <option>16:30</option>
+                            <option>17:00</option>
+                            <option>17:30</option>
+                            <option>18:00</option>
+                            <option>18:30</option>
+                            <option>19:00</option>
+                            <option>19:30</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="alternative">
+                            Alternativno vrijeme
+                        </label>
+
+                        <select id="alternative">
+
+                            <option>
+                                Nije potrebno
+                            </option>
+
+                            <option>
+                                Bilo koje vrijeme taj dan
+                            </option>
+
+                            <option>
+                                Može i drugi dan
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label for="message">
+                            Napomena
+                        </label>
+
+                        <textarea
+                            id="message"
+                            placeholder="Npr. želim kraću frizuru sa strane..."
+                        ></textarea>
+
+                    </div>
+
+                </div>
+
+
+                <div class="booking-actions">
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary"
+                    >
+                        Pošalji zahtjev →
+                    </button>
+
+                    <a
+                        href="tel:+385957422376"
+                        class="btn btn-outline"
+                    >
+                        📞 Nazovi salon
+                    </a>
+
+                </div>
+
+            </form>
 
         </div>
 
@@ -1002,69 +1513,134 @@ footer{
 </section>
 
 
-<!-- CONTACT -->
+<!-- ================================
+     CALL
+================================ -->
 
-<section class="contact" id="contact">
+<section class="call-section">
 
-    <div>
+    <div class="call-inner">
 
-        <div class="section-label">
-            Kontakt
-        </div>
+        <div>
 
-        <h2 class="section-title">
-            Posjeti<br>
-            <span>My Story.</span>
-        </h2>
+            <h2>
+                Trebaš termin odmah?
+            </h2>
 
-        <div class="contact-info">
-
-            <div class="contact-item">
-                <small>Adresa</small>
-                <span>
-                    Josipa Jelačića 8,<br>
-                    43500 Daruvar
-                </span>
-            </div>
-
-            <div class="contact-item">
-                <small>Telefon</small>
-                <a href="tel:+385957422376">
-                    +385 95 742 2376
-                </a>
-            </div>
-
-            <div class="contact-item">
-                <small>Radno vrijeme</small>
-                <span>
-                    Pon — Pet · 08:00 — 20:00<br>
-                    Sub · 08:00 — 15:00
-                </span>
-            </div>
+            <p>
+                Nazovi MY STORY i dogovori termin direktno sa salonom.
+            </p>
 
         </div>
+
+        <a
+            href="tel:+385957422376"
+            class="btn btn-primary"
+        >
+            📞 095 742 2376
+        </a>
 
     </div>
 
+</section>
 
-    <div class="map">
 
-        <div class="map-inner">
+<!-- ================================
+     LOCATION
+================================ -->
 
-            <strong>MY STORY</strong>
+<section class="location" id="location">
 
-            <span>
-                Josipa Jelačića 8 · Daruvar
-            </span>
+    <div class="section-label">
+        Posjeti nas
+    </div>
 
-            <br><br>
+    <h2 class="section-title">
+        Vidimo se u <span>Daruvaru.</span>
+    </h2>
+
+
+    <div class="location-grid">
+
+        <div class="location-card">
+
+            <div class="location-item">
+
+                <div class="location-icon">
+                    📍
+                </div>
+
+                <div>
+                    <strong>Adresa</strong>
+
+                    <span>
+                        Josipa Jelačića 8<br>
+                        43500 Daruvar
+                    </span>
+                </div>
+
+            </div>
+
+
+            <div class="location-item">
+
+                <div class="location-icon">
+                    📞
+                </div>
+
+                <div>
+                    <strong>Telefon</strong>
+
+                    <span>
+                        <a href="tel:+385957422376">
+                            095 742 2376
+                        </a>
+                    </span>
+                </div>
+
+            </div>
+
+
+            <div class="location-item">
+
+                <div class="location-icon">
+                    🕐
+                </div>
+
+                <div>
+                    <strong>Radno vrijeme</strong>
+
+                    <span>
+                        Pon — Pet<br>
+                        08:00 — 16:00<br><br>
+
+                        Subota<br>
+                        08:00 — 15:00
+                    </span>
+                </div>
+
+            </div>
+
 
             <a
-                href="https://www.google.com/maps/search/?api=1&query=Josipa+Jelačića+8,+Daruvar"
+                href="https://www.google.com/maps/search/?api=1&query=Josipa+Jela%C4%8Di%C4%87a+8+Daruvar"
                 target="_blank"
                 class="btn btn-primary"
             >
-                Otvori lokaciju →
+                Otvori Google Maps →
+            </a>
+
+        </div>
+
+
+        <div class="map">
+
+            <a
+                href="https://www.google.com/maps/search/?api=1&query=Josipa+Jela%C4%8Di%C4%87a+8+Daruvar"
+                target="_blank"
+                class="btn btn-outline"
+            >
+                📍 Pronađi nas na karti
             </a>
 
         </div>
@@ -1074,98 +1650,463 @@ footer{
 </section>
 
 
-<!-- FOOTER -->
+<!-- ================================
+     FAQ
+================================ -->
+
+<section class="faq">
+
+    <div class="faq-container">
+
+        <div class="section-label">
+            FAQ
+        </div>
+
+        <h2 class="section-title">
+            Česta <span>pitanja.</span>
+        </h2>
+
+
+        <div class="faq-item">
+
+            <button class="faq-question">
+                Kako mogu rezervirati termin?
+                <span class="faq-plus">+</span>
+            </button>
+
+            <div class="faq-answer">
+                Odaberi uslugu, datum i željeno vrijeme u
+                obrascu za rezervaciju. Nakon slanja zahtjeva
+                salon će pregledati dostupnost i potvrditi termin.
+            </div>
+
+        </div>
+
+
+        <div class="faq-item">
+
+            <button class="faq-question">
+                Je li termin odmah potvrđen?
+                <span class="faq-plus">+</span>
+            </button>
+
+            <div class="faq-answer">
+                Ne. Online obrazac šalje zahtjev za termin.
+                Termin postaje potvrđen tek kada ga salon potvrdi.
+            </div>
+
+        </div>
+
+
+        <div class="faq-item">
+
+            <button class="faq-question">
+                Mogu li nazvati salon?
+                <span class="faq-plus">+</span>
+            </button>
+
+            <div class="faq-answer">
+                Naravno. Klikom na gumb "Nazovi salon" odmah
+                možeš kontaktirati MY STORY na broj
+                095 742 2376.
+            </div>
+
+        </div>
+
+
+        <div class="faq-item">
+
+            <button class="faq-question">
+                Gdje se salon nalazi?
+                <span class="faq-plus">+</span>
+            </button>
+
+            <div class="faq-answer">
+                MY STORY nalazi se na adresi Josipa Jelačića 8
+                u Daruvaru. Na stranici možeš otvoriti lokaciju
+                direktno u Google Mapsu.
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================================
+     FOOTER
+================================ -->
 
 <footer>
 
-    <div class="footer-logo">
-        MY <span>STORY</span>
+    <div class="footer-top">
+
+        <div class="footer-brand">
+
+            <div class="logo">
+                MY <span>STORY</span>
+            </div>
+
+            <p>
+                Mjesto gdje stil postaje dio tvoje priče.
+                Profesionalna njega, moderan izgled
+                i pažnja posvećena svakom detalju.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <div class="footer-title">
+                Navigacija
+            </div>
+
+            <div class="footer-links">
+
+                <a href="#home">Početna</a>
+                <a href="#about">O nama</a>
+                <a href="#services">Usluge</a>
+                <a href="#booking">Rezervacija</a>
+                <a href="#location">Kontakt</a>
+
+            </div>
+
+        </div>
+
+
+        <div>
+
+            <div class="footer-title">
+                Kontakt
+            </div>
+
+            <div class="footer-links">
+
+                <a href="tel:+385957422376">
+                    095 742 2376
+                </a>
+
+                <a href="#location">
+                    Josipa Jelačića 8
+                </a>
+
+                <a href="#location">
+                    Daruvar, Hrvatska
+                </a>
+
+            </div>
+
+        </div>
+
     </div>
 
-    <div>
-        © 2026 My Story · Daruvar
-    </div>
 
-    <div class="social">
+    <div class="footer-bottom">
 
-        <a
-            href="https://www.facebook.com/MyStoryFrizerskiSalon/"
-            target="_blank"
-        >
-            Facebook
-        </a>
+        <span>
+            © <span id="year"></span> MY STORY
+        </span>
 
-        <a href="tel:+385957422376">
-            Kontakt
-        </a>
+        <span>
+            Designed with <span class="gold">♥</span>
+        </span>
 
     </div>
 
 </footer>
 
 
+<!-- ================================
+     SUCCESS MODAL
+================================ -->
+
+<div class="modal" id="successModal">
+
+    <div class="modal-card">
+
+        <div class="modal-icon">
+            ✓
+        </div>
+
+        <h2>
+            Zahtjev je spreman!
+        </h2>
+
+        <p>
+            Sada će se otvoriti WhatsApp poruka sa svim
+            podacima o željenom terminu. Salon zatim može
+            provjeriti dostupnost i potvrditi termin.
+        </p>
+
+        <button
+            class="btn btn-primary close-modal"
+            id="closeModal"
+        >
+            U redu
+        </button>
+
+    </div>
+
+</div>
+
+
+<div class="toast" id="toast">
+    Podaci su pripremljeni.
+</div>
+
+
 <script>
 
-/* Smooth reveal */
+/* ================================
+   HEADER
+================================ */
 
-const elements = document.querySelectorAll(
-    ".service, .gallery-item, .feature, .contact-item"
-);
+const header = document.getElementById("header");
 
-const observer = new IntersectionObserver(
-    entries => {
+window.addEventListener("scroll", () => {
 
-        entries.forEach(entry => {
-
-            if(entry.isIntersecting){
-
-                entry.target.style.opacity = "1";
-                entry.target.style.transform = "translateY(0)";
-
-            }
-
-        });
-
-    },
-    {threshold:.12}
-);
-
-
-elements.forEach(el => {
-
-    el.style.opacity = "0";
-    el.style.transform = "translateY(25px)";
-    el.style.transition = "opacity .7s ease, transform .7s ease";
-
-    observer.observe(el);
+    if(window.scrollY > 40){
+        header.classList.add("scrolled");
+    }else{
+        header.classList.remove("scrolled");
+    }
 
 });
 
 
-/* Mobile menu */
+/* ================================
+   MOBILE MENU
+================================ */
 
-const menu = document.querySelector(".menu");
-const links = document.querySelector(".nav-links");
+const menuBtn = document.getElementById("menuBtn");
+const mobileMenu = document.getElementById("mobileMenu");
+const mobileClose = document.getElementById("mobileClose");
 
-menu.addEventListener("click", () => {
+menuBtn.addEventListener("click", () => {
+    mobileMenu.classList.add("active");
+});
 
-    if(links.style.display === "flex"){
+mobileClose.addEventListener("click", () => {
+    mobileMenu.classList.remove("active");
+});
 
-        links.style.display = "none";
+document.querySelectorAll(".mobile-menu a").forEach(link => {
 
-    }else{
+    link.addEventListener("click", () => {
+        mobileMenu.classList.remove("active");
+    });
 
-        links.style.display = "flex";
-        links.style.position = "absolute";
-        links.style.top = "76px";
-        links.style.left = "0";
-        links.style.right = "0";
-        links.style.padding = "25px";
-        links.style.background = "#111";
-        links.style.flexDirection = "column";
-        links.style.gap = "20px";
+});
 
+
+/* ================================
+   DATE MINIMUM
+================================ */
+
+const dateInput = document.getElementById("date");
+
+const today = new Date();
+
+const localDate =
+    today.getFullYear() +
+    "-" +
+    String(today.getMonth()+1).padStart(2,"0") +
+    "-" +
+    String(today.getDate()).padStart(2,"0");
+
+dateInput.min = localDate;
+
+
+/* ================================
+   BOOKING
+================================ */
+
+const bookingForm = document.getElementById("bookingForm");
+const successModal = document.getElementById("successModal");
+const closeModal = document.getElementById("closeModal");
+
+bookingForm.addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    const name =
+        document.getElementById("name").value.trim();
+
+    const phone =
+        document.getElementById("phone").value.trim();
+
+    const service =
+        document.getElementById("service").value;
+
+    const date =
+        document.getElementById("date").value;
+
+    const time =
+        document.getElementById("time").value;
+
+    const alternative =
+        document.getElementById("alternative").value;
+
+    const message =
+        document.getElementById("message").value.trim();
+
+
+    if(!name || !phone || !service || !date || !time){
+
+        alert("Molimo ispuni sva obavezna polja.");
+
+        return;
     }
+
+
+    const formattedDate =
+        new Date(date + "T12:00:00")
+        .toLocaleDateString("hr-HR");
+
+
+    let whatsappMessage =
+
+`Pozdrav MY STORY! 👋
+
+Želio/la bih zatražiti termin.
+
+👤 Ime: ${name}
+
+📞 Telefon: ${phone}
+
+✂️ Usluga: ${service}
+
+📅 Datum: ${formattedDate}
+
+🕐 Vrijeme: ${time}
+
+🔄 Alternativa: ${alternative}
+
+📝 Napomena:
+${message || "Nema dodatne napomene."}
+
+Molim vas javite je li termin dostupan i potvrdite rezervaciju.
+
+Hvala!`;
+
+
+    const whatsappURL =
+        "https://wa.me/385957422376?text=" +
+        encodeURIComponent(whatsappMessage);
+
+
+    successModal.classList.add("active");
+
+
+    setTimeout(() => {
+
+        window.open(
+            whatsappURL,
+            "_blank"
+        );
+
+    },500);
+
+});
+
+
+/* ================================
+   CLOSE MODAL
+================================ */
+
+closeModal.addEventListener("click", () => {
+
+    successModal.classList.remove("active");
+
+});
+
+
+successModal.addEventListener("click", (e) => {
+
+    if(e.target === successModal){
+        successModal.classList.remove("active");
+    }
+
+});
+
+
+/* ================================
+   FAQ
+================================ */
+
+document.querySelectorAll(".faq-question").forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const item =
+            button.parentElement;
+
+        const wasActive =
+            item.classList.contains("active");
+
+
+        document.querySelectorAll(".faq-item")
+        .forEach(other => {
+
+            other.classList.remove("active");
+
+            const plus =
+                other.querySelector(".faq-plus");
+
+            plus.textContent = "+";
+
+        });
+
+
+        if(!wasActive){
+
+            item.classList.add("active");
+
+            const plus =
+                item.querySelector(".faq-plus");
+
+            plus.textContent = "−";
+
+        }
+
+    });
+
+});
+
+
+/* ================================
+   YEAR
+================================ */
+
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+
+/* ================================
+   SMOOTH LINKS
+================================ */
+
+document.querySelectorAll('a[href^="#"]')
+.forEach(anchor => {
+
+    anchor.addEventListener("click", function(e){
+
+        const target =
+            document.querySelector(this.getAttribute("href"));
+
+        if(target){
+
+            e.preventDefault();
+
+            target.scrollIntoView({
+                behavior:"smooth"
+            });
+
+        }
+
+    });
 
 });
 
