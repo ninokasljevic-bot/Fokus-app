@@ -1,0 +1,1859 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#07050b">
+
+<title>DEVIL KEBAB 😈</title>
+
+<style>
+:root{
+  --bg:#07050b;
+  --card:#121019;
+  --card2:#17131f;
+  --line:#2b2337;
+  --purple:#9d25ff;
+  --purple2:#c23aff;
+  --muted:#a9a2b2;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:#fff;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+}
+
+body:before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  background:
+    radial-gradient(circle at 78% 12%,rgba(133,20,255,.15),transparent 29%),
+    radial-gradient(circle at 5% 70%,rgba(133,20,255,.07),transparent 27%);
+}
+
+/* ================= NAVBAR ================= */
+
+.nav{
+  position:sticky;
+  top:0;
+  z-index:30;
+  height:76px;
+  background:rgba(7,5,11,.86);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid #ffffff08;
+}
+
+.nav-inner{
+  max-width:1220px;
+  height:100%;
+  margin:auto;
+  padding:0 28px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  font-weight:950;
+}
+
+.logo span{
+  color:var(--purple2);
+}
+
+.navlinks{
+  display:flex;
+  gap:27px;
+  align-items:center;
+}
+
+.navlinks a{
+  color:#d9d4df;
+  text-decoration:none;
+  font-size:13px;
+}
+
+.navlinks a:hover{
+  color:var(--purple2);
+}
+
+.phone{
+  border:1px solid #7622aa;
+  border-radius:9px;
+  padding:11px 15px!important;
+  color:#fff!important;
+}
+
+.cart-btn{
+  position:relative;
+  border:1px solid #7622aa;
+  background:#120c19;
+  color:#fff;
+  border-radius:9px;
+  padding:10px 13px;
+  cursor:pointer;
+}
+
+.cart-count{
+  position:absolute;
+  right:-7px;
+  top:-7px;
+  width:19px;
+  height:19px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:var(--purple2);
+  font-size:10px;
+  font-weight:900;
+}
+
+.menu-toggle{
+  display:none;
+  background:none;
+  border:0;
+  color:#fff;
+  font-size:24px;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+  max-width:1220px;
+  margin:auto;
+  min-height:580px;
+  padding:62px 28px 30px;
+  display:grid;
+  grid-template-columns:46% 54%;
+  align-items:center;
+}
+
+.tag{
+  display:inline-block;
+  border:1px solid #7020aa;
+  border-radius:7px;
+  color:#b339ff;
+  padding:9px 12px;
+  font-size:10px;
+  font-weight:850;
+}
+
+h1{
+  font-size:clamp(54px,6vw,78px);
+  line-height:.9;
+  letter-spacing:-4px;
+  margin:24px 0 18px;
+}
+
+.purple{
+  color:#a229ff;
+}
+
+.hero p{
+  max-width:405px;
+  color:#b7b0bd;
+  font-size:14px;
+  line-height:1.7;
+}
+
+.actions{
+  display:flex;
+  gap:12px;
+  margin:25px 0;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:14px 18px;
+  border-radius:8px;
+  text-decoration:none;
+  font-size:11px;
+  font-weight:900;
+  cursor:pointer;
+}
+
+.primary{
+  background:linear-gradient(135deg,#8e20ff,#bd30ff);
+  box-shadow:0 12px 35px #8f20ff27;
+  border:0;
+  color:#fff;
+}
+
+.outline{
+  border:1px solid #7622aa;
+  background:transparent;
+  color:#fff;
+}
+
+.points{
+  display:flex;
+  gap:50px;
+  margin-top:24px;
+}
+
+.point{
+  font-size:9px;
+  color:#aaa3b2;
+  text-transform:uppercase;
+  line-height:1.45;
+}
+
+.point strong{
+  display:block;
+  color:#fff;
+  font-size:10px;
+}
+
+.pi{
+  font-size:21px;
+  color:#b435ff;
+}
+
+.hero-art{
+  height:490px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  background:
+    radial-gradient(
+      circle at 55% 50%,
+      #9d25ff31,
+      transparent 50%
+    );
+}
+
+.hero-art img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transform:scale(1.07);
+  filter:saturate(1.08);
+}
+
+/* ================= SECTION ================= */
+
+section{
+  max-width:1220px;
+  margin:auto;
+  padding:58px 28px;
+}
+
+.center{
+  text-align:center;
+}
+
+.eyebrow{
+  color:#b435ff;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:1.4px;
+}
+
+h2{
+  font-size:31px;
+  margin:8px 0 10px;
+}
+
+.under{
+  width:40px;
+  height:2px;
+  background:#a329ff;
+  margin:auto;
+}
+
+/* ================= FILTERS ================= */
+
+.filters{
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  margin:25px 0 5px;
+  flex-wrap:wrap;
+}
+
+.filter{
+  border:1px solid var(--line);
+  background:#0f0c14;
+  color:#bdb5c7;
+  border-radius:999px;
+  padding:9px 14px;
+  font-size:10px;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.filter:hover,
+.filter.active{
+  background:#7f20d9;
+  color:#fff;
+  border-color:#a53bff;
+}
+
+/* ================= MENU ================= */
+
+.menu-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  margin-top:28px;
+}
+
+.card{
+  background:linear-gradient(145deg,#17131f,#0e0b13);
+  border:1px solid var(--line);
+  border-radius:15px;
+  overflow:hidden;
+  box-shadow:0 18px 50px #0005;
+  transition:.22s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+  border-color:#6f2a9b;
+}
+
+.card.hidden{
+  display:none;
+}
+
+.photo{
+  height:225px;
+  overflow:hidden;
+  background:#0f0d14;
+  position:relative;
+}
+
+.photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:.3s;
+}
+
+.card:hover .photo img{
+  transform:scale(1.035);
+}
+
+.badge{
+  position:absolute;
+  top:13px;
+  left:13px;
+  width:33px;
+  height:33px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:#8220e9;
+  border:1px solid #c65bff;
+  box-shadow:0 0 18px #8e20ff55;
+  z-index:2;
+}
+
+.body{
+  padding:17px;
+}
+
+.body h3{
+  font-size:14px;
+  margin:0 0 8px;
+}
+
+.body p{
+  font-size:11px;
+  color:#a39cab;
+  line-height:1.6;
+  min-height:36px;
+  margin:0;
+}
+
+.row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top:17px;
+}
+
+.price{
+  font-size:18px;
+  font-weight:950;
+  color:#b437ff;
+}
+
+.add{
+  width:31px;
+  height:31px;
+  border:0;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:#8e20ff;
+  color:#fff;
+  font-size:20px;
+  cursor:pointer;
+  box-shadow:0 7px 20px #8e20ff38;
+}
+
+.add:active{
+  transform:scale(.9);
+}
+
+.menu-link{
+  text-align:center;
+  margin-top:22px;
+}
+
+/* ================= WHY ================= */
+
+.why{
+  margin-top:22px;
+  display:grid;
+  grid-template-columns:1.15fr repeat(4,1fr);
+  border:1px solid var(--line);
+  border-radius:14px;
+  overflow:hidden;
+  background:#121019;
+}
+
+.why>div{
+  padding:23px;
+  border-right:1px solid var(--line);
+}
+
+.why>div:last-child{
+  border:0;
+}
+
+.why h3{
+  font-size:22px;
+  line-height:1.1;
+  margin:8px 0;
+}
+
+.why b{
+  font-size:11px;
+}
+
+.why p{
+  font-size:9px;
+  color:#999;
+  line-height:1.5;
+}
+
+.wi{
+  font-size:22px;
+  color:#b536ff;
+}
+
+/* ================= INFO ================= */
+
+.info{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+  margin-top:20px;
+}
+
+.box{
+  min-height:160px;
+  padding:23px;
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:#111019;
+}
+
+.box h3{
+  font-size:13px;
+  margin:0 0 15px;
+}
+
+.box p,
+.hours{
+  font-size:11px;
+  color:#aaa4b1;
+  line-height:1.7;
+}
+
+.map{
+  background:
+    radial-gradient(
+      circle at 75% 45%,
+      #7e1bc526,
+      transparent 50%
+    ),
+    #111019;
+}
+
+.map a{
+  display:inline-block;
+  margin-top:10px;
+  border:1px solid #7724ab;
+  border-radius:7px;
+  padding:10px 13px;
+  color:#fff;
+  text-decoration:none;
+  font-size:10px;
+  font-weight:800;
+}
+
+.hours{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:7px;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+  max-width:1220px;
+  margin:auto;
+  padding:25px 28px 34px;
+  border-top:1px solid #241e2c;
+  display:flex;
+  justify-content:space-between;
+  color:#777;
+  font-size:10px;
+}
+
+/* ================= TOAST ================= */
+
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:22px;
+  transform:translate(-50%,20px);
+  opacity:0;
+  pointer-events:none;
+  background:#17111f;
+  border:1px solid #6f28a0;
+  box-shadow:0 18px 50px #0009;
+  border-radius:12px;
+  padding:12px 16px;
+  color:#fff;
+  font-size:12px;
+  z-index:100;
+  transition:.25s;
+}
+
+.toast.show{
+  opacity:1;
+  transform:translate(-50%,0);
+}
+
+/* ================= CART ================= */
+
+.drawer-backdrop{
+  position:fixed;
+  inset:0;
+  background:#0009;
+  z-index:80;
+  opacity:0;
+  pointer-events:none;
+  transition:.25s;
+}
+
+.drawer-backdrop.open{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.drawer{
+  position:fixed;
+  right:0;
+  top:0;
+  height:100%;
+  width:min(420px,92vw);
+  background:#0e0b13;
+  border-left:1px solid #32243e;
+  z-index:90;
+  transform:translateX(100%);
+  transition:.3s;
+  padding:25px;
+  display:flex;
+  flex-direction:column;
+  box-shadow:-25px 0 70px #0008;
+}
+
+.drawer.open{
+  transform:translateX(0);
+}
+
+.drawer-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid var(--line);
+  padding-bottom:18px;
+}
+
+.drawer-head h3{
+  margin:0;
+}
+
+.close{
+  background:none;
+  border:0;
+  color:#fff;
+  font-size:28px;
+  cursor:pointer;
+}
+
+.cart-items{
+  flex:1;
+  overflow:auto;
+  padding:15px 0;
+}
+
+.cart-item{
+  display:grid;
+  grid-template-columns:65px 1fr auto;
+  gap:11px;
+  align-items:center;
+  padding:12px 0;
+  border-bottom:1px solid #211a2b;
+}
+
+.cart-item img{
+  width:65px;
+  height:55px;
+  object-fit:cover;
+  border-radius:8px;
+}
+
+.cart-item h4{
+  margin:0 0 5px;
+  font-size:12px;
+}
+
+.cart-item small{
+  color:#9f98a8;
+}
+
+.qty{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  margin-top:7px;
+}
+
+.qty button{
+  width:23px;
+  height:23px;
+  border-radius:50%;
+  border:1px solid #54216f;
+  background:#17101f;
+  color:#fff;
+  cursor:pointer;
+}
+
+.empty{
+  color:#8e8797;
+  text-align:center;
+  padding:50px 10px;
+}
+
+.cart-foot{
+  border-top:1px solid var(--line);
+  padding-top:17px;
+}
+
+.total{
+  display:flex;
+  justify-content:space-between;
+  font-weight:900;
+  margin-bottom:13px;
+}
+
+.checkout{
+  width:100%;
+}
+
+/* ================= CHECKOUT ================= */
+
+.modal{
+  position:fixed;
+  inset:0;
+  z-index:110;
+  display:grid;
+  place-items:center;
+  padding:20px;
+  background:#0009;
+  opacity:0;
+  pointer-events:none;
+  transition:.2s;
+}
+
+.modal.open{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.modal-card{
+  width:min(500px,100%);
+  background:#110d17;
+  border:1px solid #3a2947;
+  border-radius:18px;
+  padding:23px;
+  box-shadow:0 25px 90px #000c;
+}
+
+.modal-card h3{
+  margin:0 0 8px;
+}
+
+.modal-card p{
+  color:#a8a0b0;
+  font-size:12px;
+  line-height:1.6;
+}
+
+.form{
+  display:grid;
+  gap:10px;
+  margin-top:16px;
+}
+
+.form input,
+.form textarea{
+  width:100%;
+  background:#0a080e;
+  border:1px solid #30243b;
+  border-radius:9px;
+  padding:12px;
+  color:#fff;
+  outline:none;
+}
+
+.form textarea{
+  min-height:80px;
+  resize:vertical;
+}
+
+.modal-actions{
+  display:flex;
+  gap:9px;
+  margin-top:13px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:800px){
+
+  .navlinks{
+    display:none;
+  }
+
+  .menu-toggle{
+    display:block;
+  }
+
+  .hero{
+    grid-template-columns:1fr;
+    padding-top:35px;
+  }
+
+  .hero-art{
+    order:-1;
+    height:320px;
+  }
+
+  .copy{
+    text-align:center;
+  }
+
+  .hero p{
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .actions,
+  .points{
+    justify-content:center;
+  }
+
+  .menu-grid,
+  .info{
+    grid-template-columns:1fr;
+  }
+
+  .photo{
+    height:265px;
+  }
+
+  .why{
+    grid-template-columns:1fr;
+  }
+
+  .why>div{
+    border-right:0;
+    border-bottom:1px solid var(--line);
+  }
+
+  .why>div:last-child{
+    border-bottom:0;
+  }
+
+  footer{
+    flex-direction:column;
+    gap:9px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="nav">
+
+<div class="nav-inner">
+
+<div class="logo">
+DEVIL <span>KEBAB</span> 😈
+</div>
+
+<div class="navlinks">
+
+<a href="#pocetna">Početna</a>
+<a href="#meni">Meni</a>
+<a href="#zasto">O nama</a>
+<a href="#lokacija">Lokacija</a>
+<a href="#kontakt">Kontakt</a>
+
+<button class="cart-btn" onclick="openCart()">
+🛒 Košarica
+<span class="cart-count" id="cartCount">0</span>
+</button>
+
+<a class="phone" href="tel:+385997516752">
+☎ 099 751 6752
+</a>
+
+</div>
+
+<button class="menu-toggle" onclick="openCart()">
+🛒
+</button>
+
+</div>
+
+</nav>
+
+
+<!-- ================= HERO ================= -->
+
+<header class="hero" id="pocetna">
+
+<div class="copy">
+
+<div class="tag">
+⌖ DARUVAR • TRG KRALJA TOMISLAVA 16
+</div>
+
+<h1>
+PAKLENO<br>
+<span class="purple">DOBAR</span><br>
+KEBAB<span class="purple">.</span>
+</h1>
+
+<p>
+Sočan kebab, hrskavi prilozi i umaci za one koji vole malo jače.
+Dobrodošao u <span class="purple">DEVIL KEBAB.</span>
+</p>
+
+<div class="actions">
+
+<a class="btn primary" href="#meni">
+POGLEDAJ PONUDU →
+</a>
+
+<a class="btn outline" href="tel:+385997516752">
+☎ 099 751 6752
+</a>
+
+</div>
+
+<div class="points">
+
+<div class="point">
+<span class="pi">♨</span>
+<strong>SVEŽE</strong>
+SVAKI DAN
+</div>
+
+<div class="point">
+<span class="pi">▱</span>
+<strong>100% KVALITETNO</strong>
+MESO
+</div>
+
+<div class="point">
+<span class="pi">☻</span>
+<strong>PAKLENO</strong>
+UKUSNO
+</div>
+
+</div>
+
+</div>
+
+<div class="hero-art">
+
+<img src="kebab.jpg" alt="DEVIL KEBAB">
+
+</div>
+
+</header>
+
+
+<!-- ================= MENU ================= -->
+
+<section id="meni">
+
+<div class="center">
+
+<div class="eyebrow">
+NAJPOPULARNIJE
+</div>
+
+<h2>
+Što se danas jede?
+</h2>
+
+<div class="under"></div>
+
+</div>
+
+
+<!-- FILTERI -->
+
+<div class="filters">
+
+<button class="filter active" data-filter="all">
+Sve
+</button>
+
+<button class="filter" data-filter="kebab">
+Kebab
+</button>
+
+<button class="filter" data-filter="chicken">
+Chicken
+</button>
+
+<button class="filter" data-filter="plata">
+Plate
+</button>
+
+</div>
+
+
+<!-- PROIZVODI -->
+
+<div class="menu-grid">
+
+
+<!-- KEBAB -->
+
+<article
+class="card"
+data-category="kebab"
+data-name="DEVIL KEBAB"
+data-price="5.00"
+data-image="kebab.jpg"
+>
+
+<div class="photo">
+
+<span class="badge">
+♛
+</span>
+
+<img
+src="kebab.jpg"
+alt="Devil Kebab"
+>
+
+</div>
+
+<div class="body">
+
+<h3>
+DEVIL KEBAB 🌶️
+</h3>
+
+<p>
+Sočno meso, svježa salata,
+posebni umaci i naše pecivo.
+</p>
+
+<div class="row">
+
+<span class="price">
+5,00 €
+</span>
+
+<button
+class="add"
+aria-label="Dodaj Devil Kebab"
+>
++
+</button>
+
+</div>
+
+</div>
+
+</article>
+
+
+<!-- CRISPY -->
+
+<article
+class="card"
+data-category="chicken"
+data-name="CRISPY CHICKEN"
+data-price="5.50"
+data-image="crispy.jpg"
+>
+
+<div class="photo">
+
+<span class="badge">
+♨
+</span>
+
+<img
+src="crispy.jpg"
+alt="Crispy Chicken"
+>
+
+</div>
+
+<div class="body">
+
+<h3>
+CRISPY CHICKEN
+</h3>
+
+<p>
+Hrskavo pileće meso
+i savršeni prilozi.
+</p>
+
+<div class="row">
+
+<span class="price">
+5,50 €
+</span>
+
+<button
+class="add"
+aria-label="Dodaj Crispy Chicken"
+>
++
+</button>
+
+</div>
+
+</div>
+
+</article>
+
+
+<!-- PLATA -->
+
+<article
+class="card"
+data-category="plata"
+data-name="DEVIL PLATA"
+data-price="9.50"
+data-image="plata.jpg"
+>
+
+<div class="photo">
+
+<span class="badge">
+😈
+</span>
+
+<img
+src="plata.jpg"
+alt="Devil Plata"
+>
+
+</div>
+
+<div class="body">
+
+<h3>
+DEVIL PLATA 🌶️
+</h3>
+
+<p>
+Velika plata za velike
+ljubitelje kebaba.
+</p>
+
+<div class="row">
+
+<span class="price">
+9,50 €
+</span>
+
+<button
+class="add"
+aria-label="Dodaj Devil Plata"
+>
++
+</button>
+
+</div>
+
+</div>
+
+</article>
+
+</div>
+
+
+<div class="menu-link">
+
+<button
+class="btn outline"
+onclick="showToast('Cijeli meni uskoro može biti povezan s pravom ponudom.')"
+>
+☷ &nbsp; Pogledaj cijeli meni
+</button>
+
+</div>
+
+
+<!-- ================= WHY ================= -->
+
+<div class="why" id="zasto">
+
+<div>
+
+<div class="eyebrow">
+ZAŠTO MI?
+</div>
+
+<h3>
+Nismo samo još jedan
+<span class="purple">
+kebab.
+</span>
+</h3>
+
+</div>
+
+
+<div>
+
+<div class="wi">
+♨
+</div>
+
+<b>
+Najbolje namirnice
+</b>
+
+<p>
+Koristimo samo kvalitetne sastojke.
+</p>
+
+</div>
+
+
+<div>
+
+<div class="wi">
+♧
+</div>
+
+<b>
+Sveže svaki dan
+</b>
+
+<p>
+Pripremamo sve svježe, svaki dan.
+</p>
+
+</div>
+
+
+<div>
+
+<div class="wi">
+ϟ
+</div>
+
+<b>
+Brza usluga
+</b>
+
+<p>
+Tvoj kebab je gotov brzo i vruć.
+</p>
+
+</div>
+
+
+<div>
+
+<div class="wi">
+♡
+</div>
+
+<b>
+Ljubav prema okusu
+</b>
+
+<p>
+Svaki zalogaj je pakleno dobar.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- ================= INFO ================= -->
+
+<div class="info" id="lokacija">
+
+
+<div class="box map">
+
+<h3>
+⌖ &nbsp; Lokacija
+</h3>
+
+<p>
+Trg kralja Tomislava 16,<br>
+43500 Daruvar
+</p>
+
+<a
+target="_blank"
+href="https://www.google.com/maps/search/?api=1&query=DEVIL+KEBAB+Daruvar"
+>
+Otvori u Google Maps ↗
+</a>
+
+</div>
+
+
+<div class="box" id="kontakt">
+
+<h3>
+◷ &nbsp; Radno vrijeme
+</h3>
+
+<div class="hours">
+
+<span>
+Ponedjeljak - Četvrtak
+</span>
+
+<span>
+10:00 - 23:00
+</span>
+
+<span>
+Petak - Subota
+</span>
+
+<span>
+10:00 - 01:00
+</span>
+
+<span>
+Nedjelja
+</span>
+
+<span>
+11:00 - 23:00
+</span>
+
+</div>
+
+<hr
+style="
+border:0;
+border-top:1px solid #292330;
+margin:14px 0;
+">
+
+<div class="hours">
+
+<span>
+Narudžbe & Info
+</span>
+
+<span style="
+color:#b437ff;
+font-weight:800;
+">
+
+☎ 099 751 6752
+
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<b style="color:#fff">
+
+DEVIL
+<span class="purple">
+KEBAB
+</span>
+😈
+
+</b>
+
+<span>
+© 2026 DEVIL KEBAB.
+</span>
+
+<span>
+◎　●　♪
+</span>
+
+</footer>
+
+
+<!-- ================= TOAST ================= -->
+
+<div
+class="toast"
+id="toast"
+></div>
+
+
+<!-- ================= CART ================= -->
+
+<div
+class="drawer-backdrop"
+id="backdrop"
+onclick="closeCart()"
+></div>
+
+
+<aside
+class="drawer"
+id="drawer"
+>
+
+<div class="drawer-head">
+
+<h3>
+🛒 Tvoja košarica
+</h3>
+
+<button
+class="close"
+onclick="closeCart()"
+>
+×
+</button>
+
+</div>
+
+
+<div
+class="cart-items"
+id="cartItems"
+></div>
+
+
+<div class="cart-foot">
+
+<div class="total">
+
+<span>
+Ukupno
+</span>
+
+<span id="cartTotal">
+0,00 €
+</span>
+
+</div>
+
+<button
+class="btn primary checkout"
+onclick="openCheckout()"
+>
+NASTAVI S NARUDŽBOM →
+</button>
+
+</div>
+
+</aside>
+
+
+<!-- ================= CHECKOUT ================= -->
+
+<div
+class="modal"
+id="checkout"
+>
+
+<div class="modal-card">
+
+<h3>
+DEVIL KEBAB — Narudžba
+</h3>
+
+<p>
+Ovo je demo proces narudžbe.
+Kasnije ga možemo povezati s pravim sustavom naručivanja.
+</p>
+
+<div class="form">
+
+<input
+id="customerName"
+placeholder="Ime i prezime"
+>
+
+<input
+id="customerPhone"
+placeholder="Broj telefona"
+>
+
+<textarea
+id="customerNote"
+placeholder="Napomena uz narudžbu"
+></textarea>
+
+</div>
+
+<div class="modal-actions">
+
+<button
+class="btn outline"
+onclick="closeCheckout()"
+>
+Natrag
+</button>
+
+<button
+class="btn primary"
+onclick="submitOrder()"
+>
+POTVRDI NARUDŽBU
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* ================= CART ================= */
+
+const cart=[];
+
+const cards=[
+  ...document.querySelectorAll(".card")
+];
+
+
+/* DODAVANJE PROIZVODA */
+
+document
+.querySelectorAll(".add")
+.forEach(button=>{
+
+button.addEventListener("click",event=>{
+
+const card=
+event.target.closest(".card");
+
+const name=
+card.dataset.name;
+
+const price=
+Number(card.dataset.price);
+
+const image=
+card.dataset.image;
+
+const existing=
+cart.find(item=>item.name===name);
+
+if(existing){
+
+existing.qty++;
+
+}else{
+
+cart.push({
+name,
+price,
+image,
+qty:1
+});
+
+}
+
+updateCart();
+
+showToast(
+name+" dodan u košaricu ✓"
+);
+
+});
+
+});
+
+
+/* ================= FILTERI ================= */
+
+document
+.querySelectorAll(".filter")
+.forEach(button=>{
+
+button.addEventListener("click",()=>{
+
+document
+.querySelectorAll(".filter")
+.forEach(btn=>{
+btn.classList.remove("active");
+});
+
+button.classList.add("active");
+
+const filter=
+button.dataset.filter;
+
+cards.forEach(card=>{
+
+if(
+filter==="all" ||
+card.dataset.category===filter
+){
+
+card.classList.remove("hidden");
+
+}else{
+
+card.classList.add("hidden");
+
+}
+
+});
+
+});
+
+});
+
+
+/* ================= UPDATE CART ================= */
+
+function updateCart(){
+
+const items=
+document.getElementById("cartItems");
+
+const count=
+cart.reduce(
+(total,item)=>total+item.qty,
+0
+);
+
+document
+.getElementById("cartCount")
+.textContent=count;
+
+
+if(cart.length===0){
+
+items.innerHTML=`
+
+<div class="empty">
+
+Košarica je prazna.
+
+<br>
+
+Dodaj nešto pakleno dobro. 😈
+
+</div>
+
+`;
+
+document
+.getElementById("cartTotal")
+.textContent="0,00 €";
+
+return;
+
+}
+
+
+items.innerHTML=
+cart
+.map((item,index)=>`
+
+<div class="cart-item">
+
+<img
+src="${item.image}"
+alt=""
+>
+
+<div>
+
+<h4>
+${item.name}
+</h4>
+
+<small>
+${item.price
+.toFixed(2)
+.replace(".",",")} €
+/ kom
+</small>
+
+<div class="qty">
+
+<button
+onclick="changeQty(${index},-1)"
+>
+−
+</button>
+
+<b>
+${item.qty}
+</b>
+
+<button
+onclick="changeQty(${index},1)"
+>
++
+</button>
+
+</div>
+
+</div>
+
+<b>
+${(
+item.price *
+item.qty
+)
+.toFixed(2)
+.replace(".",",")} €
+</b>
+
+</div>
+
+`)
+.join("");
+
+
+const total=
+cart.reduce(
+(sum,item)=>
+sum+
+item.price*
+item.qty,
+0
+);
+
+document
+.getElementById("cartTotal")
+.textContent=
+total
+.toFixed(2)
+.replace(".",",")
++" €";
+
+}
+
+
+/* ================= QUANTITY ================= */
+
+function changeQty(index,direction){
+
+cart[index].qty+=direction;
+
+if(cart[index].qty<=0){
+
+cart.splice(index,1);
+
+}
+
+updateCart();
+
+}
+
+
+/* ================= OPEN CART ================= */
+
+function openCart(){
+
+document
+.getElementById("drawer")
+.classList.add("open");
+
+document
+.getElementById("backdrop")
+.classList.add("open");
+
+updateCart();
+
+}
+
+
+/* ================= CLOSE CART ================= */
+
+function closeCart(){
+
+document
+.getElementById("drawer")
+.classList.remove("open");
+
+document
+.getElementById("backdrop")
+.classList.remove("open");
+
+}
+
+
+/* ================= TOAST ================= */
+
+function showToast(message){
+
+const toast=
+document.getElementById("toast");
+
+toast.textContent=
+message;
+
+toast.classList.add("show");
+
+clearTimeout(
+window.toastTimer
+);
+
+window.toastTimer=
+setTimeout(
+()=>{
+toast.classList.remove("show");
+},
+2200
+);
+
+}
+
+
+/* ================= CHECKOUT ================= */
+
+function openCheckout(){
+
+if(cart.length===0){
+
+showToast(
+"Prvo dodaj nešto u košaricu."
+);
+
+return;
+
+}
+
+document
+.getElementById("checkout")
+.classList.add("open");
+
+}
+
+
+function closeCheckout(){
+
+document
+.getElementById("checkout")
+.classList.remove("open");
+
+}
+
+
+/* ================= SUBMIT DEMO ORDER ================= */
+
+function submitOrder(){
+
+const name=
+document
+.getElementById("customerName")
+.value
+.trim();
+
+const phone=
+document
+.getElementById("customerPhone")
+.value
+.trim();
+
+if(!name || !phone){
+
+showToast(
+"Upiši ime i broj telefona."
+);
+
+return;
+
+}
+
+closeCheckout();
+
+closeCart();
+
+showToast(
+"Demo narudžba je uspješno zaprimljena ✓"
+);
+
+}
+
+
+/* ================= INITIALIZE ================= */
+
+updateCart();
+
+</script>
+
+</body>
+</html>
