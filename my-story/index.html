@@ -1402,6 +1402,16 @@ const supabase = window.supabase.createClient(
                         </select>
 
                     </div>
+                    <div class="form-group">
+    <label for="stylist">Frizer / stilist</label>
+    <select id="stylist" required>
+        <option value="">Odaberi frizera</option>
+        <option value="Ema">Ema</option>
+        <option value="Ivan">Ivan</option>
+        <option value="Alen">Alen</option>
+        <option value="Maša">Maša</option>
+    </select>
+</div>
 
 
                     <div class="form-group">
@@ -1950,13 +1960,16 @@ bookingForm.addEventListener("submit", function(e){
     const name =
         document.getElementById("name").value.trim();
 
+    
     const phone =
         document.getElementById("phone").value.trim();
 
     const service =
         document.getElementById("service").value;
-
-    const date =
+   const stylist =
+    document.getElementById("stylist").value; 
+    
+        const date =
         document.getElementById("date").value;
 
     const time =
@@ -1993,6 +2006,8 @@ bookingForm.addEventListener("submit", function(e){
 📞 Telefon: ${phone}
 
 ✂️ Usluga: ${service}
+
+💇 Frizer: ${stylist}
 
 📅 Datum: ${formattedDate}
 
